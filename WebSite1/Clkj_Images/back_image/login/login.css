@@ -1,0 +1,101 @@
+﻿@charset "utf-8";
+
+* {padding:0px;margin:0px;}
+
+body {
+      background-image: url(newbg.gif);
+      margin:0px;
+}
+
+.main {
+      width:100%;
+      text-align:center;
+}
+
+.pagebox {
+      width:778px;
+      height:428;
+}
+
+.pic {
+      margin:0px;
+      float: left;
+      background-image: url(lpic.jpg);
+      width:440px;
+      height:428px;
+}
+
+.info {
+      text-align:left;
+      margin:0px;
+      float: left;
+      background-image: url(info.gif);
+      width:338px;
+      height:428px;
+}
+
+.box {
+      border: 1px solid #BDBDBD;
+      width:266px;
+      margin-top:57px;
+      margin-left:9px;
+}
+
+.input {
+      font-family: "宋体";
+      margin:14px 14px 3px 20px;
+}
+
+.span {
+      font-weight: normal;
+      font-size:12px;
+      color:#ff6600;
+}
+
+.txtfield12 {
+	font-family: "宋体";
+	font-size: 13px;
+	color: #616161;
+	text-decoration: none;
+	border: 1px solid #b4b4b4;
+	width: 100px;
+    height:20px;
+	line-height:18px;
+
+}
+
+.sign {
+	font-family: "宋体";
+	font-size: 13px;
+       margin:0px;
+       background:#F2F2F2;
+       width:100%;
+       height:30px;
+       padding:15px 0px 5px 55px;
+}
+.h12 {
+	font-family: "宋体";
+	font-size: 13px;
+	color: #000000;
+	text-decoration: none;
+}
+
+a {
+	font-size: 12px;
+	color: #000000;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #FF9900;
+}
+a:active {
+	text-decoration: none;
+	color: #FF9900;
+}
