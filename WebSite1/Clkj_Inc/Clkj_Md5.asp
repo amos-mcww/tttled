@@ -398,6 +398,7 @@ End function
 
 '数据库路径--------------------------------------------------------------------------------------------------------
 
-Datasmdb="Clkj_DaTa/#Clkj_Cms#.mdb"
+Datasmdb="fdsfsx.mdb"
+'"KZazdata_mdb#@Z+/!@#zk(3sZzAbsdw($).mdb"
 
 %>
