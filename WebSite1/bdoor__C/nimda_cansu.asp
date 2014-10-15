@@ -79,10 +79,10 @@
     </tr>
     <tr>
       <td width="15%" height="35" align="center" valign="middle">网站Logo</td>
-      <td height="35" align="left" valign="middle"><input name="prpic" type="text" id="prpic" size="50" value="<%=rs("clkj_config_logo")%>" readonly="readonly">
+      <td height="35" align="left" valign="middle"><input name="prpic" type="text" id="prpic" size="50" value="<%=rs("clkj_config_logo")%>" readonly>
         &nbsp;
         <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=myform&editname=prpic&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')">
-        Logo描述(alt)：
+        (图片尺寸:宽600,高165pixel) Logo描述(alt)：
         <input name="logo_ms" type="text" id="logo_ms" value="<%=rs("logo_ms")%>"></td>
     </tr>
     <tr>

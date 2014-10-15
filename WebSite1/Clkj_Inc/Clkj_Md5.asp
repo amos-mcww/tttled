@@ -398,7 +398,6 @@ End function
 
 '数据库路径--------------------------------------------------------------------------------------------------------
 
-Datasmdb="fdsfsx.mdb"
-'"KZazdata_mdb#@Z+/!@#zk(3sZzAbsdw($).mdb"
+Datasmdb="KZazdata_mdb#@Z+/!@#zk(3sZzAbsdw($).mdb"
 
 %>

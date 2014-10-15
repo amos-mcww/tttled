@@ -168,9 +168,7 @@ move=false;
 <br>
 <table width="100%" cellspacing="0" cellpadding="0">
   <tr>
-    <td height="39" background="../Clkj_Images/back_image/back_images_title.gif" widht=100% colspan=2>&nbsp;<b>SemCms公告声明</b></td>
   </tr>
-  <tr><td><iframe src="http://www.sem-cms.com/gongao.asp" style="width:100%; border:0px; padding:0px; margin:0px; height:100px;" marginheight="0" frameborder="0" scrolling="no" vspace="0" border="0" hspace="0"></iframe></td></tr>
 </table>
 <br>
 <table width="100%" cellspacing="0" cellpadding="0">

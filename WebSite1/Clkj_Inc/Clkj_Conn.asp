@@ -34,7 +34,8 @@ Dim conn,connstr
 
 on error resume next
 Set conn = Server.CreateObject("ADODB.Connection")
-conn.Open "driver={Microsoft Access Driver (*.mdb)};dbq="&Server.MapPath(""&Datasmdb&"")	
+DBPath = Server.MapPath(""&Datasmdb&"")
+conn.Open "driver={Microsoft Access Driver (*.mdb)};dbq=" &	DBPath
 		if err then
 			err.clear
 			set conn=nothing
