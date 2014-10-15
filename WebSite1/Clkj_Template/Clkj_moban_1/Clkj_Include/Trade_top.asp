@@ -2,9 +2,7 @@
     	<div class="sem-top-1">
         	<div class="sem-top-1-left"><a href="/"><img src="<%=clkj_logo%>" title="<%=clkj_logo_ms%>" alt="<%=clkj_logo_ms%>" border="0"/></a></div>
             <div class="sem-top-1-right">
-            	<div class="sem-top-1-right-1" id="tops"><%=clkj_co_email_2%> <%=clkj_co_msn_2%> <%=clkj_co_skype_2%></div>
                 <div class="cb"></div>
-                <div class="sem-top-1-right-2"><%=clkj_co_tel%></div>
                 <div class="cb"></div>
                 <div class="sem-top-1-right-3">
                 	<ul>
