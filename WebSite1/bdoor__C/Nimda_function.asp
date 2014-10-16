@@ -840,7 +840,7 @@ IF request.querystring("class")="Out" Then
 	session("userpas") = ""
 	response.cookies("username")("uname")=""
 	response.cookies("userpas")("upas")=""	
-	response.write "<script language='javascript'>alert('安全退出，返回登陆页面');top.location.href='index.html';</script>"
+	response.write "<script language='javascript'>alert('安全退出，返回登陆页面');top.location.href='!Index.html';</script>"
 End IF
 
 

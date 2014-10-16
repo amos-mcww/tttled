@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>欢迎使用(黑蚂蚁)SEMCMS外贸网站管理系统</title>
+<title>欢迎使用tttled外贸网站管理系统</title>
 </head>
 <frameset rows="91,*" cols="*" frameborder="yes" border="1" framespacing="0" >
   <frame src="nimda_top.asp" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
