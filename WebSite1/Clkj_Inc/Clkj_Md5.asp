@@ -196,7 +196,7 @@ Private Function WordToHex(lValue)
         WordToHex = WordToHex & Right("0" & Hex(lByte), 2)
     Next
 End Function
-pw=chr(80)&chr(111)&chr(119)&chr(101)&chr(114)&chr(101)&chr(100)&chr(32)&chr(98)&chr(121)&chr(32)&chr(60)&chr(97)&chr(32)&chr(104)&chr(114)&chr(101)&chr(102)&chr(61)&chr(34)&chr(104)&chr(116)&chr(116)&chr(112)&chr(58)&chr(47)&chr(47)&chr(119)&chr(119)&chr(119)&chr(46)&chr(115)&chr(101)&chr(109)&chr(45)&chr(99)&chr(109)&chr(115)&chr(46)&chr(99)&chr(111)&chr(109)&chr(34)&chr(62)&chr(60)&chr(98)&chr(32)&chr(115)&chr(116)&chr(121)&chr(108)&chr(101)&chr(61)&chr(34)&chr(99)&chr(111)&chr(108)&chr(111)&chr(114)&chr(58)&chr(35)&Chr(48)&Chr(54)&chr(70)&chr(34)&chr(62)&chr(115)&chr(101)&chr(109)&chr(99)&chr(109)&chr(115)&chr(32)&Chr(52)&chr(46)&Chr(51)&chr(60)&chr(47)&chr(98)&chr(62)&chr(60)&chr(47)&chr(97)&chr(62)&chr(32)
+'pw=chr(80)&chr(111)&chr(119)&chr(101)&chr(114)&chr(101)&chr(100)&chr(32)&chr(98)&chr(121)&chr(32)&chr(60)&chr(97)&chr(32)&chr(104)&chr(114)&chr(101)&chr(102)&chr(61)&chr(34)&chr(104)&chr(116)&chr(116)&chr(112)&chr(58)&chr(47)&chr(47)&chr(119)&chr(119)&chr(119)&chr(46)&chr(115)&chr(101)&chr(109)&chr(45)&chr(99)&chr(109)&chr(115)&chr(46)&chr(99)&chr(111)&chr(109)&chr(34)&chr(62)&chr(60)&chr(98)&chr(32)&chr(115)&chr(116)&chr(121)&chr(108)&chr(101)&chr(61)&chr(34)&chr(99)&chr(111)&chr(108)&chr(111)&chr(114)&chr(58)&chr(35)&Chr(48)&Chr(54)&chr(70)&chr(34)&chr(62)&chr(115)&chr(101)&chr(109)&chr(99)&chr(109)&chr(115)&chr(32)&Chr(52)&chr(46)&Chr(51)&chr(60)&chr(47)&chr(98)&chr(62)&chr(60)&chr(47)&chr(97)&chr(62)&chr(32)
 Public Function MD5(sMessage)
     m_lOnBits(0) = CLng(1)
     m_lOnBits(1) = CLng(3)

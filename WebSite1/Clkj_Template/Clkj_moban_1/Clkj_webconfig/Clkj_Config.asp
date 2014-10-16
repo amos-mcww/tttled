@@ -21,7 +21,7 @@
   
 		
 '-------尾部信息--------------------------------------------------------------------------
-
+		pw="Powered by tttled.com "
 		clkj_bottom_mm = pw&rs("clkj_config_bottom")
 		clkj_bottom_address = rs("clkj_gs_dz")'公司尾部地址	
 		clkj_bottom_key = "<div class="&chr(34)&"clkj_bottom_lk_key"&chr(34)&">"&rs("clkj_bottom_key")&"</div>"'尾部关链词
