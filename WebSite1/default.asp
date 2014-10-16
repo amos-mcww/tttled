@@ -43,7 +43,8 @@ clkj_new_les="index"
     
     </div>
     <div class="cb"></div>
- <!--#include file="Clkj_Template/Clkj_moban_1/Clkj_Include/Trade_bot.asp"-->
+
+<!--#include file="Clkj_Template/Clkj_moban_1/Clkj_Include/Trade_bot.asp"-->
 
 
 </div>
