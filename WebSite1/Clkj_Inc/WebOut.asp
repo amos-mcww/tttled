@@ -8,7 +8,7 @@ if session("username")<>"" then
       	 	session("username")=request.cookies("username")("uname")
 	   end if
 else
-     Response.Write "<script language='javascript'>alert('用户名与密码为空或失效请重新进入!');top.location.href='index.html';</script>"
+     Response.Write "<script language='javascript'>alert('用户名与密码为空或失效请重新进入!');top.location.href='!Index.html';</script>"
 
 end if
 
