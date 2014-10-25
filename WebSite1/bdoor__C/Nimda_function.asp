@@ -815,7 +815,7 @@ IF Request.Querystring("Class")="userpas" Then
 		Sql="select * from  clkj_admin  where clkj_admin='"&username&"' and clkj_password='"&password&"'"
 		Rs.open sql,conn,1,1
 			IF Rs.eof or Rs.bof then
-				  response.write "<script language='javascript'>alert('用户名域密码错误!');top.location.href='index.html';</script>"
+				  response.write "<script language='javascript'>alert('用户名域密码错误!');top.location.href='!Index.html';</script>"
 				  rs.close
 				  set rs=nothing
 				  response.end()
