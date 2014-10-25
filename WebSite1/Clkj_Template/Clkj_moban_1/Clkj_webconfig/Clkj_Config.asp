@@ -21,7 +21,7 @@
   
 		
 '-------尾部信息--------------------------------------------------------------------------
-
+		pw="Powered by tttled.com"
 		clkj_bottom_mm = pw&rs("clkj_config_bottom")
 		clkj_bottom_address = rs("clkj_gs_dz")'公司尾部地址	
 		clkj_bottom_key = "<div class="&chr(34)&"clkj_bottom_lk_key"&chr(34)&">"&rs("clkj_bottom_key")&"</div>"'尾部关链词
@@ -181,11 +181,6 @@ Rs.close
 		Rs.movenext
 		index_P_Pic=""
         Loop
-		if instr(clkj_bottom_m,chr(115)&chr(101)&chr(109)&chr(99)&chr(109)&chr(115)) = 0 then
-		Set Rs=server.createobject("adodb.recordset")
-		sql= "drop table clkj_menu"
-        rs.open sql,conn,3,3
-		end if
 		Rs.close
 		set rs=nothing
 		
