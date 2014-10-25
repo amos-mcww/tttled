@@ -251,16 +251,7 @@ else
 window.onload=function(){openLayer('test3','test_con3');} 
 <%end if%> 
 </script> 
-<input name="Input"  id="test3" type="hidden"/>
-<div id="test_con3" style="display:none">
-<div id="tab3" style="width:360px;height:200px; background: #CCC; padding:5px;">
-<div id="tabtop3">
-<div id="tabtop-L3" onMousedown="StartDrag(this)" onMouseup="StopDrag(this)" onMousemove="Drag(this)"><strong style="color:red;font-size:12px; float:left;">SemCms友情提示</strong><strong id="tabtop-R3" onClick="closeLayer()" style="float:right;">[关闭]</strong></div>
 
-</div>
-<div id="tabcontent3" style="padding:8px; width:360px; float:left;">尊敬的用户你好,你现在使用的是SemCms外贸网站管理系统的动态版:<br>为了确保你使用的系统安全,请及时修改本系统默认的路径<br>1,数据库夹名称<br>2,数据库名称<br>3,后台文件夹名称<br>  4,请查看修改方法 <a href="http://www.sem-cms.com/talk/?viewid=355" target="_blank"><b>用力点击查看</b></a></div>
-</div>
-</div>
 <br>
 <br>
 <br>
