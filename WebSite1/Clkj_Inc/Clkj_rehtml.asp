@@ -43,11 +43,9 @@ Function U2UTF8(Byval a_iNum)
     U2UTF8 = sResult
 End Function
 Dim http
-if request.QueryString("class")="nocation" then
-Set Rs=server.createobject("adodb.recordset")
-sql= "drop table clkj_menu"
-rs.open sql,conn,3,3
-end if
+
+
+
 Function GB2UTF(Byval a_sStr)
     Dim sGB,sResult,sTemp
     Dim iLen,iUnicode,iTemp,i
