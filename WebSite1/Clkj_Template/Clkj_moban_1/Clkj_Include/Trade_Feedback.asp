@@ -36,7 +36,7 @@
             <div class="sem-mid-cont-1"> <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:#FFFFFF solid 1px;">
               <form name="message" action="Clkj_Inc/clkj_message.asp?class=message" method="post">
                 <tr>
-                  <td width="140" height="30" align="right" valign="middle" class="border1"><span class="cl-1">*</span>Title:</td>
+                  <td width="140" height="30" align="right" valign="middle" class="border1">Title:</td>
                   <td width="416" align="left" valign="middle" class="border2">&nbsp;
                     <input name="title" type="text" id="title" size="40" value="<%=clkj_prtitlefeed%>"/></td>
                 </tr>
@@ -51,7 +51,7 @@
                     <input name="Company" type="text" id="Company" size="40" /></td>
                 </tr>
                 <tr>
-                  <td height="30" align="right" valign="middle" class="border1"><span class="cl-1">*</span> Name:</td>
+                  <td height="30" align="right" valign="middle" class="border1"> Name:</td>
                   <td align="left" valign="middle" class="border2">&nbsp;
                     <input name="Name" type="text" id="Name" size="20" /></td>
                 </tr>
@@ -62,7 +62,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td height="30" align="right" valign="middle" class="border1"><span class="cl-1">*</span> Phone:</td>
+                  <td height="30" align="right" valign="middle" class="border1">Phone:</td>
                   <td align="left" valign="middle" class="border2">&nbsp;
                     <input name="Phone" type="text" id="Phone" size="20" /></td>
                 </tr>
@@ -72,7 +72,7 @@
                     <input name="Fax" type="text" id="Fax" size="20" /></td>
                 </tr>
                 <tr>
-                  <td height="30" align="right" valign="middle" class="border1"><span class="cl-1">*</span> Country/Region:</td>
+                  <td height="30" align="right" valign="middle" class="border1">Country/Region:</td>
                   <td align="left" valign="middle" class="border2">&nbsp;
                   <input type="text" name="Region" id="Region" />
                   </td>
