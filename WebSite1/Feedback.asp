@@ -36,56 +36,15 @@
             <div class="sem-mid-cont-1"> <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:#FFFFFF solid 1px;">
               <form name="message" action="Clkj_Inc/clkj_message.asp?class=message" method="post">
                 <tr>
-                  <td width="140" height="30" align="right" valign="middle" class="border1">Title:</td>
+                  <td width="140" height="120" align="right" valign="middle" class="border1"><span class="cl-1">*</span> Content:</td>
                   <td width="416" align="left" valign="middle" class="border2">&nbsp;
-                    <input name="title" type="text" id="title" size="40" value="<%=clkj_prtitlefeed%>"/></td>
-                </tr>
-                <tr>
-                  <td height="120" align="right" valign="middle" class="border1"><span class="cl-1">*</span> Content:</td>
-                  <td align="left" valign="middle" class="border2">&nbsp;
                     <textarea name="content" cols="50" rows="7" id="content"></textarea></td>
-                </tr>
-                <tr>
-                  <td height="30" align="right" valign="middle" class="border1"> Company:</td>
-                  <td align="left" valign="middle" class="border2">&nbsp;
-                    <input name="Company" type="text" id="Company" size="40" /></td>
-                </tr>
-                <tr>
-                  <td height="30" align="right" valign="middle" class="border1">Name:</td>
-                  <td align="left" valign="middle" class="border2">&nbsp;
-                    <input name="Name" type="text" id="Name" size="20" /></td>
                 </tr>
                 <tr>
                   <td height="30" align="right" valign="middle" class="border1"><span class="cl-1">*</span> E-mail:</td>
                   <td align="left" valign="middle" class="border2">&nbsp;
                     <input name="mail" type="text" id="mail" size="30" onBlur="E();" />
                   </td>
-                </tr>
-                <tr>
-                  <td height="30" align="right" valign="middle" class="border1">Phone:</td>
-                  <td align="left" valign="middle" class="border2">&nbsp;
-                    <input name="Phone" type="text" id="Phone" size="20" /></td>
-                </tr>
-                <tr>
-                  <td height="30" align="right" valign="middle" class="border1"> Fax:</td>
-                  <td align="left" valign="middle" class="border2">&nbsp;
-                    <input name="Fax" type="text" id="Fax" size="20" /></td>
-                </tr>
-                <tr>
-                  <td height="30" align="right" valign="middle" class="border1">Country/Region:</td>
-                  <td align="left" valign="middle" class="border2">&nbsp;
-                  <input type="text" name="Region" id="Region" />
-                  </td>
-                </tr>
-                <tr>
-                  <td height="30" align="right" valign="middle" class="border1">Home Page:</td>
-                  <td align="left" valign="middle" class="border2">&nbsp;
-                    <input name="Home" type="text" id="Home" size="40" /></td>
-                </tr>
-                <tr>
-                  <td height="35" align="right" valign="middle" class="border1"><span class="cl-1">*</span> Code</td>
-                  <td align="left" valign="middle" class="border2"> &nbsp;
-                  <input type="text" size="8" name="yzm" style="width:40px;" > <img src="Clkj_Inc/Clkj_code.asp" alt="验证码" onclick="this.src='Clkj_Inc/Clkj_code.asp?rnd=' + Math.random();" /> </td>
                 </tr>
                 <tr>
                   <td height="35" align="right" valign="middle" class="border1"><!--DWLayoutEmptyCell-->&nbsp;</td>
