@@ -9,7 +9,7 @@ IF request.QueryString("class")="message" then
 		Set Rs=server.createobject("ADODB.Recordset")
 		Sql="select * from clkj_message"
 		Rs.open Sql,conn,1,3
-		'If  request.form("Name")=""  or request.form("mail")="" or request.Form("title")="" or request.Form("content")="" or request.Form("Phone")="" or request.Form("Region")="" Then
+
 		If  request.form("mail")="" or request.Form("content")=""  Then
 		response.write "<script language='javascript'>alert('Note:with * can not be empty!');history.go(-1);</script>"
 		else if request.form("yzm")<>session("GetCode") Then
