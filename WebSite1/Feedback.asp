@@ -41,10 +41,20 @@
                     <textarea name="content" cols="50" rows="7" id="content"></textarea></td>
                 </tr>
                 <tr>
+                  <td height="30" align="right" valign="middle" class="border1">Name:</td>
+                  <td align="left" valign="middle" class="border2">&nbsp;
+                    <input name="Name" type="text" id="Name" size="20" /></td>
+                </tr>
+                <tr>
                   <td height="30" align="right" valign="middle" class="border1"><span class="cl-1">*</span> E-mail:</td>
                   <td align="left" valign="middle" class="border2">&nbsp;
                     <input name="mail" type="text" id="mail" size="30" onBlur="E();" />
                   </td>
+                </tr>
+                <tr>
+                  <td height="30" align="right" valign="middle" class="border1">Mobile:</td>
+                  <td align="left" valign="middle" class="border2">&nbsp;
+                    <input name="Phone" type="text" id="Phone" size="20" /></td>
                 </tr>
                 <tr>
                   <td height="35" align="right" valign="middle" class="border1"><!--DWLayoutEmptyCell-->&nbsp;</td>
