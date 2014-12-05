@@ -132,17 +132,16 @@
         <br></td>
     </tr>
     <tr>
-      <td colspan="2" height="30" style=" border-bottom:1px solid #CCC; text-indent:0.5em;"><b>水印邮件参数设置</b></td>
+      <td colspan="2" height="30" style=" border-bottom:1px solid #CCC; text-indent:0.5em;">&nbsp;</td>
     </tr>
     <tr>
     <tr>
-      <td width="15%" rowspan="5" align="center" valign="middle"><p>图片水印</p></td>
-      <td height="35" align="left" valign="middle"><strong>水印图片图宽：</strong>
-        <input name="clkj_pic_w" type="text" id="clkj_pic_w" value="<%=rs("clkj_config_sltk")%>" size="4" />
+      <td width="15%" rowspan="6" align="center" valign="middle"><p>图片水印</p></td>
+      <td height="35" align="left" valign="middle">缩略图宽：
+<input name="clkj_pic_w" type="text" id="clkj_pic_w" value="<%=rs("clkj_config_sltk")%>" size="4" />
         px 缩略图高
         <input name="clkj_pic_h" type="text" id="clkj_pic_h" value="<%=rs("clkj_config_sltg")%>" size="4" />
-        px (高度可不设) <strong>启用图片水印</strong>
-        <input name="picof" type="checkbox" id="picof" value="yes" <% if rs("picof")=1 then response.Write("checked") end if%>></td>
+        px (高度可不设.<u><strong>宽高若为0,则显示错误,不显示缩略图.</strong></u>)</td>
     </tr>
     <tr>
       <td height="35" align="left" valign="middle"><strong>文字颜色：</strong>
@@ -179,12 +178,16 @@
         <input name="pictext" type="text" id="pictext" value="<%=rs("pictext")%>" size="40"></td>
     </tr>
     <tr>
-      <td height="35" align="left" valign="middle"><strong>上传图片水印</strong>：
-        <input name="picimg" type="text" id="picimg" size="50" value="<%=rs("picimg")%>">
-        &nbsp;
-        <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=myform&editname=picimg&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')">
-        <br>
-        (注：<font color="#FF0000">如果开启图片水印时，水印图片必须存在，否则会影响图片传送！</font>) <a href="http://www.sem-cms.com/talk/?viewid=254"><font color="#0000CC">查看设置方法</font></a></td>
+      <td height="35" align="left" valign="middle"><strong>启用图片水印</strong>
+      <input name="picof2" type="checkbox" id="picof2" value="yes" <% if rs("picof")=1 then response.Write("checked") end if%>></td>
+    </tr>
+    <tr>
+      <td height="35" align="left" valign="middle"><p><strong>上传图片水印</strong>：
+          <input name="picimg" type="text" id="picimg" size="50" value="<%=rs("picimg")%>">
+          &nbsp;
+          <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=myform&editname=picimg&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')">
+          <br>
+        (注：<font color="#FF0000">如果开启图片水印时，水印图片必须存在，否则会影响图片传送！</font>) <a href="http://www.sem-cms.com/talk/?viewid=254"><font color="#0000CC">查看设置方法</font></a></p></td>
     </tr>
     <tr>
       <td rowspan="3" align="center" valign="middle" >邮件转发</td>
