@@ -21,8 +21,8 @@
   
 		
 '-------尾部信息--------------------------------------------------------------------------
-		pw="Powered by tttled.com"
-		clkj_bottom_mm = pw&rs("clkj_config_bottom")
+		pw="Powered by www.mmmled.com   "
+		clkj_bottom_mm = rs("clkj_config_bottom")
 		clkj_bottom_address = rs("clkj_gs_dz")'公司尾部地址	
 		clkj_bottom_key = "<div class="&chr(34)&"clkj_bottom_lk_key"&chr(34)&">"&rs("clkj_bottom_key")&"</div>"'尾部关链词
 				
@@ -30,7 +30,7 @@
 		clkj_co_lxr = rs("clkj_lxr")'公司联系人
 		clkj_co_tel = rs("clkj_config_tel")'公司电话
 		clkj_co_cz  = rs("clkj_cz")'公司传真
-		clkj_bottom_m = pw&rs("clkj_config_bottom")
+		clkj_bottom_m = rs("clkj_config_bottom")
 		IF rs("clkj_config_email")<>"" Then
 			E=Split(rs("clkj_config_email"),",")
 			For Each email in E
@@ -87,7 +87,7 @@
 		clkj_config_web_url = rs("clkj_config_url")'网站地址
 		
 '--------------------------------------------------------------------------	
-        clkj_bottom = pw&rs("clkj_config_bottom")
+        clkj_bottom = rs("clkj_config_bottom")
 		email_user=rs("email_user")
 		email_pas=rs("email_pas")
 		email_server=rs("email_server")
