@@ -4,6 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="shortcut icon" href="Clkj_Images/back_image/favicon.ico" mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" /> 
+<link rel="icon" href="Clkj_Images/back_image/favicon.ico"  mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
 <title><%=clkj_prtitle%>_<%=clkj_co_name%></title>
 <meta name="keywords" content="<%=clkj_prkey%>" />
 <meta name="description" content="<%=clkj_prprdes%>" />
