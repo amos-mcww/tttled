@@ -53,6 +53,7 @@ if page<1 then page=1
 %>
         
         	<div class="sem-mid-cont-bt"><span class="sl"><%call ileibie()%></span>
+
             <span class="sr"><%if page<>1 then %><a href="<%if big=""and small="" then%>?page=<%=page-1%><%elseif  big<>"" and small="" then%>?big=<%=big%>&page=<%=page-1%><%elseif small<>"" and big="" then%>?small=<%=small%>&page=<%=page-1%><%end if%>"><img src="Clkj_Template/Clkj_moban_1/Clkj_Images/prev.gif" border="0" align="absmiddle"></a> <%end if%> 
             
             <%if page<rs.pagecount then %> <a href="<%if big=""and small="" then%>?page=<%=page+1%><%elseif  big<>"" and small="" then%>?big=<%=big%>&page=<%=page+1%><%elseif small<>"" and big="" then%>?small=<%=small%>&page=<%=page+1%><%end if%>"><img src="Clkj_Template/Clkj_moban_1/Clkj_Images/next.gif" border="0" align="absmiddle"></a><%end if%>
@@ -77,7 +78,7 @@ if page<1 then page=1
 		Next
 		pn=rs("clkj_prtitle")
 		If Len(pn) <= 24  Then
-        	SEMCMS_Br = "<br/><br/>"
+        	SEM	CMS_Br = "<br/><br/>"
         ElseIf Len(pn) <= 49 Then
         	SEMCMS_Br = "<br/>"
         ElseIf Len(pn) > 66 Then
@@ -87,13 +88,23 @@ if page<1 then page=1
         	SEMCMS_Br= ""
         End if		
 		%>
-            
-           <div class="pic"><div class="pic-div"><dt class="pic-dt"><a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><img src="<%=clkj_prpic%>"  alt="<%=rs("clkj_prtitle")%>" border="0"/></a></dt>
-            <dd>
-            <dd><a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><%=pn%><%=SEMCMS_Br%></a></dd>
-            <dd><a href="Feedback.asp?name=<%=rs("clkj_prid")%>"><img src="Clkj_Template/Clkj_moban_1/Clkj_images/inq.gif" alt="Inquire Now" border="0" /></a></dd>
-          </div></div>
-          <%
+		<table width="700" border="1" align="left" class="gallery">
+			<tr>
+				<td width="220">
+					<a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><img src="<%=clkj_prpic%>"  alt="<%=rs("clkj_prtitle")%>" border="0"/>
+					</a>
+				</td>
+				<td width="464">
+					<a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><%=pn%><%=SEMCMS_Br%>
+					</a>
+				</td>
+		  </tr>
+		</table>
+
+         
+         
+          
+					<%
 		clkj_prpic=""
 		pn=""
 		rs.movenext
@@ -104,7 +115,7 @@ if page<1 then page=1
 		%>  
             </div>
             <div class="cb"></div>
-            <div class="sem-mid-cont-1"><span class="sr"> Total products <b><%=proCount%></b>, Page <b><%=page%></b> of <b><%=rs.pagecount%></b> <%if page<>1 and  page<>0 then %>
+            <div class="sem-mid-cont-1"><span class="sr"> Total gallerys <b><%=proCount%></b>, Page <b><%=page%></b> of <b><%=rs.pagecount%></b> <%if page<>1 and  page<>0 then %>
 <a href="<%if big=""and small="" then%>?page=<%=page-1%><%elseif  big<>"" and small="" then%>?big=<%=big%>&page=<%=page-1%><%elseif small<>"" and big="" then%>?small=<%=small%>&page=<%=page-1%><%end if%>"><img src="Clkj_Template/Clkj_moban_1/Clkj_Images/prev.gif" border="0" align="absmiddle"></a> <%end if%>
             <%'分页
 		if big=""and small="" then	
