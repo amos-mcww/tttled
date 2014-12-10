@@ -8,7 +8,7 @@
 <frameset rows="91,*" cols="*" frameborder="yes" border="1" framespacing="0" >
   <frame src="nimda_top.asp" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
   <frameset rows="*" cols="189,*,207" framespacing="0" frameborder="no" border="0">
-    <frame src="nimda_left.asp" name="leftFrame" frameborder="no" scrolling="no" noresize="NORESIZE"  bordercolor="#00CCFF" id="leftFrame" title="leftFrame"/>
+    <frame src="nimda_left.asp" name="leftFrame" frameborder="no" scrolling="auto" noresize="NORESIZE"  bordercolor="#00CCFF" id="leftFrame" title="leftFrame"/>
     <frame src="nimda_middle.asp" name="mainFrame" id="mainFrame" title="mainFrame" />
     <frame src="nimda_right.asp" name="rightFrame" scrolling="auto" noresize="noresize" id="rightFrame" title="rightFrame">
   </frameset>

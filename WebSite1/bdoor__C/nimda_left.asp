@@ -20,7 +20,7 @@
   <!--DWLayoutTable-->
   <tr>
   <td width=21 align="center" valign="middle"><img src="../Clkj_Images/back_image/back_left_7.gif" width="13" height="11"></td>
-    <td height="30" width=168 align="left" valign="middle" bgcolor="#F7F7F7" background="../Clkj_Images/back_image/back_left_1.png" class="sec_menuu" id="imgmenu1" style="cursor:hand" onClick="showsubmenu(1)">综合管理</td>
+    <td height="30" width=168 align="left" valign="middle" bgcolor="#F7F7F7" background="../Clkj_Images/back_image/back_left_3.png" class="sec_menuu" id="imgmenu1" style="cursor:hand" onClick="showsubmenu(1)">综合管理</td>
   </tr>
   <tr>
   <td width=21 align="center" valign="middle"></td>
@@ -114,17 +114,42 @@
       </tr>
     </table>
 	</div>
+	</td>
+  </tr>
+ 
+
+<!--gallery start-->
+<tr>
+  <td width=21 align="center" valign="middle"><img src="../Clkj_Images/back_image/back_left_7.gif" width="13" height="11"></td>
+    <td height="30" width=168 align="left" valign="middle" bgcolor="#F7F7F7" background="../Clkj_Images/back_image/back_left_3.png" class="sec_menuu" id="imgmenu4" style="cursor:hand" onClick="showsubmenu(4)">Gallery管理</td>
+  </tr>
+  <tr>
+  <td width=21></td>
+	<td id="submenu2">
+		<div class="sec_menu" style="WIDTH: 167px">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #F7F7F7">
+      <!--DWLayoutTable-->
+	<tr>
+        <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_gallery_sort.asp target=mainFrame>Gallery栏目</a></td>
+	</tr>
+	  
+	<tr>
+        <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_gallery.asp target=mainFrame>Gallery添加</a></td>
+	</tr>
+	<tr>
+        <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_gallerys.asp target=mainFrame>Gallery管理</a></td>
+	</tr>
+    </table>
+	</div>
 	<br>
 	<br>
 	<br>
 	<br><br><br>
-	<br>
-	<br>
-	<br>
-	<br>
-  <tr>
 	</td>
-  </tr>
+  </tr>  
+<!--gallery end--> 	 
+  
+  
   
 </TABLE>
 <script>
