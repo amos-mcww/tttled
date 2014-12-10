@@ -123,6 +123,56 @@ a:hover {text-decoration: none;color: #3EC0FF;}
 .pic-dts img{ vertical-align:middle; width: expression(this.width > 65 && this.width > this.height ? "65px":true);height:expression(this.height > 65 ? "65px" : true); max-width:65px; max-height:65px; padding:2px;}
 
 
+
+/*gallery style*/
+
+.gallery{
+	width: 650px;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+	/* border: 1px dashed #FF3366;*/
+	text-align:left;
+}
+.gallerys{ width:180px; margin:auto;  margin-top:10px; margin-bottom:10px; }
+/* .galleryd{ width:187px; float:left; margin-top:10px; margin-bottom:10px;} */
+.gallery_div_img{
+	width: 280px;
+	margin: auto;
+	height: 230px;
+	padding: 3px;
+	text-align:center;
+	overflow: hidden;
+	border: 1px dashed #FF3366;
+	float: left;
+}
+
+.gallery_div_dsc{
+	width: 350px;
+	margin: auto;
+	height: 230px;
+	padding: 3px;
+	overflow: hidden;
+	border: 1px dashed #FF3366;
+	float: left;
+}
+.gallery_div_img img{ vertical-align:middle; width: expression(this.width > 150 && this.width > this.height ? "150px":true);height:expression(this.height > 150 ? "150px" : true); max-width:150px; max-height:150px;}
+.gallery_div_dsc img{ vertical-align:middle; width: expression(this.width > 150 && this.width > this.height ? "150px":true);height:expression(this.height > 150 ? "150px" : true); max-width:150px; max-height:150px;}
+
+.gallery-dt{display:table-cell;vertical-align:middle;*display:block;*font-size:130px;text-align:center;width:280px;height:230px;}/*120*0.873*/
+.gallery-dt img{ vertical-align:middle; width: expression(this.width > 150 && this.width > this.height ? "150px":true);height:expression(this.height > 150 ? "150px" : true); max-width:150px; max-height:150px;}
+.gallery_div_imgdd{width:160px; line-height:120%; float:left; text-align:center; padding-top:5px; font-size:12px;}
+/**/
+.gallery-dtb{display:table-cell;vertical-align:middle;*display:block;*font-size:261px;text-align:center;width:300px;height:300px;}/*120*0.873*/
+.gallery-dtb img{ vertical-align:middle; width: expression(this.width > 298 && this.width > this.height ? "298px":true);height:expression(this.height > 298 ? "298px" : true); max-width:298px; max-height:298px;}
+
+.gallery-dts{display:table-cell;vertical-align:middle;*display:block;*font-size:56px;text-align:center;width:65px;height:65px; border:1px solid #CCC;}/*120*0.873*/
+.gallery-dts img{ vertical-align:middle; width: expression(this.width > 65 && this.width > this.height ? "65px":true);height:expression(this.height > 65 ? "65px" : true); max-width:65px; max-height:65px; padding:2px;}
+
+
+
 /*广告样式 (新增2010.09.09)*/
 
 div#MainPromotionBanner{

@@ -88,23 +88,18 @@ if page<1 then page=1
         	SEMCMS_Br= ""
         End if		
 		%>
-		<table width="700" border="1" align="left" class="gallery">
-			<tr>
-				<td width="220">
-					<a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><img src="<%=clkj_prpic%>"  alt="<%=rs("clkj_prtitle")%>" border="0"/>
-					</a>
-				</td>
-				<td width="464">
-					<a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><%=pn%><%=SEMCMS_Br%>
-					</a>
-				</td>
-		  </tr>
-		</table>
-
-         
-         
-          
-					<%
+		<div class="gallery">	
+			<div class="gallery_div_img">
+				<a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><img src="<%=clkj_prpic%>"  alt="<%=rs("clkj_prtitle")%>" border="0"/>
+				</a>
+			</div>        
+			<div class="gallery_div_dsc">
+				<a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><%=pn%><%=SEMCMS_Br%>
+				</a>
+			</div>          
+       </div> 
+	
+	<%
 		clkj_prpic=""
 		pn=""
 		rs.movenext
