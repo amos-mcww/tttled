@@ -20,39 +20,58 @@
 	Rs.open Sql,conn,1,1
 %>
 
-<table width="100%" cellpadding="0" cellspacing="0">
+<table width="100%" border="1" cellpadding="0" cellspacing="0">
 <form name="big_class_E" action="Nimda_function.asp?Class=big_Edit" method="post">
 <tr>
 <td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#FF0000;" id="xy">修改一级分类</td>
 </tr>
 <tr>
-<td width="12%" height="30" align="center" valign="middle">分类名称</td>
-<td width="88%" align="left" class="h_td"><input name="big_name" type="text" id="big_name" value="<%=rs("clkj_BigClassName")%>" size="30" />
-必须唯一</td>
+<td width="25%" height="30" align="center" valign="middle">分类名称</td>
+<td width="75%" align="left" class="h_td"><p>&nbsp;
+  </p>
+  <p>
+    <input name="big_name" type="text" id="big_name" value="<%=rs("clkj_BigClassName")%>" size="70" />
+  </p>
+  <p>必须唯一</p>
+  <p>&nbsp;</p></td>
 </tr>
 <tr>
-<td width="12%" height="30" align="center" valign="middle">栏目文件链接名称</td>
-<td width="88%" align="left" class="h_td"><input name="big_wj_name" type="text" id="big_wj_name2" value="<%=rs("clkj_BigClassurl")%>" size="30" />
-  用于生成静态作为文件名用。必须唯一</td>
+<td width="25%" height="30" align="center" valign="middle">栏目文件链接名称</td>
+<td width="75%" align="left" class="h_td"><p>&nbsp;
+  </p>
+  <p>
+    <input name="big_wj_name" type="text" id="big_wj_name2" value="<%=rs("clkj_BigClassurl")%>" size="70" />
+  </p>
+  <p>用于生成静态作为文件名用。必须唯一</p>
+  <p>&nbsp;</p></td>
 </tr>
 <tr>
-<td width="12%" height="30" align="center" valign="middle">关键词<br>(keywords)</td>
-<td width="88%" align="left" class="h_td"><input name="big_key_name" type="text" id="big_key_name" value="<%=rs("clkj_BigClasskey")%>" size="30" />
-  如：衣服，帽子，2到3个</td>
+<td width="25%" height="30" align="center" valign="middle">关键词<br>(keywords)</td>
+<td width="75%" align="left" class="h_td"><p>&nbsp;
+  </p>
+  <p>
+    <input name="big_key_name" type="text" id="big_key_name" value="<%=rs("clkj_BigClasskey")%>" size="70" />
+  </p>
+  <p>空格分隔</p>
+  <p>&nbsp;</p></td>
 </tr>
 <tr>
-<td width="12%" height="30" align="center" valign="middle">描述<br>(description)</td>
-<td width="88%" align="left" class="h_td"><textarea name="big_ms_name" cols="40" rows="3" id="big_ms_name"><%=rs("clkj_BigClassdes")%></textarea>
-建议控制在100个字以内</td>
+<td width="25%" height="30" align="center" valign="middle">描述<br>(description)</td>
+<td width="75%" align="left" class="h_td"><p>&nbsp;
+  </p>
+  <p>
+    <textarea name="big_ms_name" cols="75" rows="12" id="big_ms_name"><%=rs("clkj_BigClassdes")%></textarea>
+  </p>
+  <p>建议控制在500个字以内</p></td>
 </tr>
 <tr>
-<td width="12%" height="30" align="center" valign="middle">排序</td>
-<td width="88%" align="left" class="h_td"><input name="big_paixu" type="text" id="big_paixu" value="<%=rs("big_paixu")%>" size="5">
-  从小到大排0,1,2,3,4.默认为0</td>
+<td width="25%" height="30" align="center" valign="middle">序号</td>
+<td width="75%" align="left" class="h_td"><input name="big_paixu" type="text" id="big_paixu" value="<%=rs("big_paixu")%>" size="5">
+  多个产品中,数字越大该类越靠前</td>
 </tr>
 <tr>
-<td width="12%" height="30" align="center" valign="middle">&nbsp;</td>
-<td width="88%" align="left" class="h_td"><input type="submit" name="Submit" value="修改" />
+<td width="25%" height="30" align="center" valign="middle">&nbsp;</td>
+<td width="75%" align="left" class="h_td"><input type="submit" name="Submit" value="确认修改" />
 <input type="hidden" name="clkj_BigClassID" value="<%=request("clkj_BigClassID")%>" /></td>
 </tr>
 </form>
