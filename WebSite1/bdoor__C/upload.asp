@@ -47,7 +47,7 @@ function mysub()
     <tr >
       <td align="center" id="upid" height="30">自定义图片名称
         <input name="imgname" type="text" id="imgname" size="20" class="tx1" >
-        <font color="#FF0000">注意：此项为空即,随机生成图片文件名</font> </td>
+        <font color="#FF0000">注意：此项为空即随机生成图片文件名</font> </td>
     </tr>
     <tr >
       <td align="center" id="upid" height="50">选择文件:

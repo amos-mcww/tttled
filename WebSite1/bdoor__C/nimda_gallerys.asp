@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="backdoor.css" type="text/css" rel="stylesheet">
-<title>产品管理</title>
+<title>Gallery管理</title>
 
 </head>
 <script type="text/javascript">
@@ -32,24 +32,24 @@ function ConfirmDel(message)
 }
 function open4()
 {
-window.location.href="nimda_products.asp?search="+document.formDel.searchs.value;
+window.location.href="nimda_gallerys.asp?search="+document.formDel.searchs.value;
 }
 
 </script>
 <body>
-  <form name="formDel" method="post" action="nimda_function.asp?Class=P_Del&clkj_SmallClassID=<%=request("clkj_SmallClassID")%>&clkj_BigClassID=<%=request("clkj_BigClassID")%>&clkj_BigClassName=<%=request.QueryString("clkj_BigClassName")%>&clkj_SmallClassName=<%=request.QueryString("clkj_SmallClassName")%>&sf=<%=request.QueryString("sf")%>&ToPage=<%if request("ToPage")="" then response.write "1"%><%if request("ToPage")<>"" then response.write request("ToPage")%>">
+  <form name="formDel" method="post" action="nimda_function.asp?Class=gallery_del&clkj_SmallClassID=<%=request("clkj_SmallClassID")%>&clkj_BigClassID=<%=request("clkj_BigClassID")%>&clkj_BigClassName=<%=request.QueryString("clkj_BigClassName")%>&clkj_SmallClassName=<%=request.QueryString("clkj_SmallClassName")%>&sf=<%=request.QueryString("sf")%>&ToPage=<%if request("ToPage")="" then response.write "1"%><%if request("ToPage")<>"" then response.write request("ToPage")%>">
 <table width="100%" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="39" align="left" valign="middle" class="tr_bg"><strong style="float:left">&nbsp;产品管理</strong><span style="float:right">
+    <td height="39" align="left" valign="middle" class="tr_bg"><strong style="float:left">&nbsp;Gallery管理</strong><span style="float:right">
 <input onClick="CheckAll(this.form)" type="button" id="submitAllSearch" value="全选"/> <input onClick="CAll(this.form)" type="button" id="submitAllSearch" value="取消"/>
-<input name="batch" type="submit" value="删除所选" onClick="ConfirmDel('是否确定删除？删除后不能恢复!');" /> </span> <span style=" float:right;">产品搜索：<input name="searchs" type="text" value="请输入产品标题" onMouseOver="this.select()" style="line-height:18px; height:20px;"> <a href="#" onClick="open4()">查询</a>&nbsp; </span></td>
+<input name="batch" type="submit" value="删除所选" onClick="ConfirmDel('是否确定删除？删除后不能恢复!');" /> </span> <span style=" float:right;">Gallery搜索：<input name="searchs" type="text" value="请输入Gallery标题" onMouseOver="this.select()" style="line-height:18px; height:20px;"> <a href="#" onClick="open4()">查询</a>&nbsp; </span></td>
   </tr>
     <tr>
-    <td height="30"bgcolor="#E7EFF8">&nbsp;栏目: &nbsp;<%call big_lie()%> 
-    &nbsp;&nbsp;[<a href="nimda_product.asp">增加产品</a>]</td>
+    <td height="30"bgcolor="#E7EFF8">&nbsp;栏目: &nbsp;<%call gallery_big_lie()%> 
+    &nbsp;&nbsp;[<a href="nimda_gallery.asp">增加Gallery</a>]</td>
   </tr>
   <%if request("clkj_BigClassID")<>"" then%>
-  <tr><td width="100%" height="25" bgcolor="#E7E7E7" style="text-indent:2em;" align="left" valign="middle"><%call small_lie()%></td>
+  <tr><td width="100%" height="25" bgcolor="#E7E7E7" style="text-indent:2em;" align="left" valign="middle"><%call gallery_small_lie()%></td>
   </tr>
   <%end if%>
 </table>
@@ -57,13 +57,12 @@ window.location.href="nimda_products.asp?search="+document.formDel.searchs.value
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <!--DWLayoutTable-->
       <tr>
-        <td width="77" height="25" align="center" valign="middle" bgcolor="#F5F5F5"><strong>编号</strong></td>
-		<td width="77" height="25" align="center" valign="middle" bgcolor="#F5F5F5"><strong>排序</strong></td>
-        <td width="136" align="center" valign="middle" bgcolor="#F5F5F5"><strong>产品分类</strong></td>
-        <td width="420" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:0.5em;"><strong>产品名称</strong></td>
-        <td width="134" align="center" valign="middle" bgcolor="#F5F5F5"><strong>是否推荐</strong></td>
-        <td width="240" align="center" valign="middle" bgcolor="#F5F5F5"><strong>时间</strong></td>
-        <td width="158" align="center" valign="middle" bgcolor="#F5F5F5"><strong>操作</strong>
+        <td width="50" height="25" align="center" valign="middle" bgcolor="#F5F5F5"><strong>编号</strong></td>
+		<td width="55" height="25" align="center" valign="middle" bgcolor="#F5F5F5"><strong>排序</strong></td>
+        <td width="316" align="center" valign="middle" bgcolor="#F5F5F5"><strong>Gallery分类</strong></td>
+        <td width="238" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:0.5em;"><strong>Gallery名称</strong></td>
+        <td width="194" align="center" valign="middle" bgcolor="#F5F5F5"><strong>时间</strong></td>
+        <td width="131" align="center" valign="middle" bgcolor="#F5F5F5"><strong>操作</strong>
 		</td>
   </tr>
     </table>
@@ -75,20 +74,20 @@ window.location.href="nimda_products.asp?search="+document.formDel.searchs.value
 	
 	<%
 	if request("clkj_BigClassID")<>""and request.QueryString("clkj_BigClassName")<>"" and request.QueryString("clkj_SmallClassName")<>"" and request("clkj_SmallClassID")<>"" then
-	sql="select * from clkj_Products where clkj_SmallClassID ="&request("clkj_SmallClassID")&" order by clkj_paixu,clkj_prid asc"
+	sql="select * from clkj_gallery where clkj_SmallClassID ="&request("clkj_SmallClassID")&" order by clkj_paixu,clkj_prid asc"
 	Elseif request("clkj_BigClassID")<>""and request.QueryString("clkj_BigClassName")<>"" and request.QueryString("clkj_SmallClassName")="" and request("clkj_SmallClassID")="" then
-	sql="select * from clkj_Products where clkj_BigClassID ="&request("clkj_BigClassID")&" order by clkj_paixu,clkj_prid asc"
+	sql="select * from clkj_gallery where clkj_BigClassID ="&request("clkj_BigClassID")&" order by clkj_paixu,clkj_prid asc"
 	Elseif request("hot")=1 then
-	sql="select * from clkj_Products where clkj_hot=1 order by clkj_paixu,clkj_prid asc"
+	sql="select * from clkj_gallery where clkj_hot=1 order by clkj_paixu,clkj_prid asc"
 	else	
-	sql="select * from clkj_Products where clkj_prtitle like '%"&request.QueryString("search")&"%' order by clkj_paixu,clkj_prid asc"
+	sql="select * from clkj_gallery where clkj_prtitle like '%"&request.QueryString("search")&"%' order by clkj_paixu,clkj_prid asc"
  
 	End IF
 	set rs=server.CreateObject("adodb.recordset")
 	rs.open sql,conn,1,3
 IF Not rs.eof Then
 proCount=rs.recordcount
-	rs.PageSize=17		  '定义每页显示数目
+	rs.PageSize=12		  '定义每页显示数目
 		if not IsEmpty(Request("ToPage")) then
 	       ToPage=CInt(Request("ToPage"))
 		   if ToPage>rs.PageCount then
@@ -113,20 +112,18 @@ proCount=rs.recordcount
 %> 
 
        <tr>
-        <td width="78" height="25" align="center" valign="middle" bgcolor="#F5F5F5" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><%=rs("clkj_prid")%></td>
-		<td width="78" height="25" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9; color:#ff0000;"><%=rs("clkj_paixu")%></td>
-        <td width="133" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;">
+        <td width="48" height="25" align="center" valign="middle" bgcolor="#F5F5F5" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><%=rs("clkj_prid")%></td>
+		<td width="56" height="25" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9; color:#ff0000;"><%=rs("clkj_paixu")%></td>
+        <td width="316" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;">
 		<% if rs("clkj_SmallClassName")="" then
 		    response.write rs("clkj_SmallClassName")
 			else
 			response.write rs("clkj_BigClassName")
 			end if
 		%></td>
-        <td width="422" align="left" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9; text-indent:0.5em;"><%=rs("clkj_prtitle")%></td>
-        <td width="132" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><%if rs("clkj_hot")=1 then %><font color="#FF0000">是</font><%else%>否<%end if%>
-         </td>
-        <td width="240" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><%=rs("clkj_time")%></td>
-        <td width="158" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><a href=nimda_product.asp?clkj_prid=<%=rs("clkj_prid")%>&Edit=P_E&clkj_BigClassID=<%=rs("clkj_BigClassID")%>&clkj_SmallClassID=<%=rs("clkj_SmallClassID")%>&ToPage=<%=Request.QueryString("ToPage")%>&sf=<%=request.QueryString("sf")%>>修改</a>
+        <td width="232" align="left" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9; text-indent:0.5em;"><%=rs("clkj_prtitle")%></td>
+        <td width="233" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><%=rs("clkj_time")%></td>
+        <td width="97" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><a href=nimda_gallery.asp?clkj_prid=<%=rs("clkj_prid")%>&Edit=gallery_edit&clkj_BigClassID=<%=rs("clkj_BigClassID")%>&clkj_SmallClassID=<%=rs("clkj_SmallClassID")%>&ToPage=<%=Request.QueryString("ToPage")%>&sf=<%=request.QueryString("sf")%>>修改</a>
           <input type="checkbox" name="delid" value="<%=rs("clkj_prid")%>">
         </td>
       </tr>
@@ -152,7 +149,7 @@ else
 end if
 
 %> 
- <tr><td height=25 colspan="7" align="right" valign="middle" bgcolor="#F5F5F5"><div> 共&nbsp;<font color="#ff0000"><%=proCount%></font>&nbsp;条, 当前第：<font color="#ff0000"><%=intCurPage%></font>/<font color="#ff0000"><%=rs.PageCount%></font>页
+ <tr><td height=25 colspan="6" align="right" valign="middle" bgcolor="#F5F5F5"><div> 共&nbsp;<font color="#ff0000"><%=proCount%></font>&nbsp;条, 当前第：<font color="#ff0000"><%=intCurPage%></font>/<font color="#ff0000"><%=rs.PageCount%></font>页
                 <% if intCurPage<>1 then %>
                 <a href="<%=link%>ToPage=1" class="redlink">首页</a>&nbsp;|&nbsp;<a href="<%=link%>ToPage=<%=intCurPage-1%>" class="redlink">上一页</a>&nbsp;|
                 <%else%>

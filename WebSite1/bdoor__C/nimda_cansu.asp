@@ -137,11 +137,12 @@
     <tr>
     <tr>
       <td width="15%" rowspan="6" align="center" valign="middle"><p>图片水印</p></td>
-      <td height="35" align="left" valign="middle">缩略图宽：
-<input name="clkj_pic_w" type="text" id="clkj_pic_w" value="<%=rs("clkj_config_sltk")%>" size="4" />
-        px 缩略图高
-        <input name="clkj_pic_h" type="text" id="clkj_pic_h" value="<%=rs("clkj_config_sltg")%>" size="4" />
-        px (高度可不设.<u><strong>宽高若为0,则显示错误,不显示缩略图.</strong></u>)</td>
+      <td height="35" align="left" valign="middle"><p>product 缩略图宽：
+          <input name="clkj_pic_w" type="text" id="clkj_pic_w" value="<%=rs("clkj_config_sltk")%>" size="6" />
+        px (<u><strong>宽高若为0,则显示错误,不显示缩略图.</strong></u>)</p>
+        <p><font color="#cc3333">gallery 缩略图宽：
+          <input name="clkj_gallery_w" type="text" id="clkj_pic_h" value="<%=rs("clkj_config_gallery_sltk")%>" size="6" />
+        px </font>(<u><strong>不要随便改动.</strong></u>)</p></td>
     </tr>
     <tr>
       <td height="35" align="left" valign="middle"><strong>文字颜色：</strong>

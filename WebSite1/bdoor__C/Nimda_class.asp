@@ -83,7 +83,7 @@ Else If request.querystring("Edit")="B_Z" then
 <table width="100%" cellpadding="0" cellspacing="0">
 <form name="big_class" action="Nimda_function.asp?Class=big" method="post">
 <tr>
-<td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#ff0000;" id="zy">增加一级分类</td>
+<td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#ff0000;" id="zy">添加一级分类</td>
 </tr>
 <tr>
 <td width="12%" height="30" align="center" valign="middle">分类名称</td>
@@ -112,7 +112,7 @@ Else If request.querystring("Edit")="B_Z" then
 </tr>
 <tr>
 <td width="12%" height="30" align="center" valign="middle">&nbsp;</td>
-<td width="88%" align="left" class="h_td"><input type="submit" name="Submit" value="增加" /></td>
+<td width="88%" align="left" class="h_td"><input type="submit" name="Submit" value="添加" /></td>
 </tr>
 </form>
 </table>
@@ -193,7 +193,7 @@ Else  If request.querystring("Edit")="S_Z" Then
 <table width="100%" cellpdding="0" cellspacing="0">
 <form name="small_class" action="Nimda_function.asp?Class=small" method="post">
 <tr>
-<td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#ff0000;" id="zr">增加二级分类</td>
+<td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#ff0000;" id="zr">添加二级分类</td>
 </tr>
 <tr>
 <td width="12%" height="30" align="center" valign="middle">一级分类名称</td>
@@ -233,7 +233,7 @@ Else  If request.querystring("Edit")="S_Z" Then
 </tr>
 <tr>
 <td width="12%" height="30" align="center" valign="middle">&nbsp;</td>
-<td width="88%" align="left" class="h_td"><input type="submit" name="Submit" value="增加" /></td>
+<td width="88%" align="left" class="h_td"><input type="submit" name="Submit" value="添加" /></td>
 </tr>
 </form>
 </table>

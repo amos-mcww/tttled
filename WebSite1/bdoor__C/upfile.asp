@@ -8,14 +8,14 @@ Server.ScriptTimeOut=20000000
 
 <%
 	Set Upload = New UpFile_Class						
-	Upload.InceptFileType = "gif,jpg,bmp,jpeg,png,rar"		
-	Upload.MaxSize = 102400000
+	Upload.InceptFileType = "gif,jpg,bmp,jpeg,png,rar,zip,7z,doc,pdf"		
+	Upload.MaxSize = 1024000000	' 1024MB
 	Upload.GetDate()
 	If Upload.Err > 0 Then
 		Select Case Upload.Err
 			Case 1 : Response.Write "请先选择你要上传的文件　[ <a href=# onclick=history.go(-1)>重新上传</a> ]"
 			Case 2 : Response.Write "图片大小超过了限制 "&Dvbbs.Forum_Setting(56)&"K　[ <a href=# onclick=history.go(-1)>重新上传</a> ]"
-			Case 3 : Response.Write "所上传类型不正确　[ <a href=# onclick=history.go(-1)>重新上传</a> ]"
+			Case 3 : Response.Write "文件类型不对! 仅支持gif,jpg,bmp,jpeg,png,rar,zip,doc,pdf 如需其它类型,请联系葩哥    　[ <a href=# onclick=history.go(-1)>重新上传</a> ]"
 		End Select
 	Else
 		 FormPath=Upload.Form("filepath")
@@ -30,7 +30,7 @@ Server.ScriptTimeOut=20000000
 			End If
 			
  			FileName=FormPath&UserFaceName(FileExt)
-			
+			Response.Write("FileName="&FileName)
  			If File.FileSize>0 Then   
 				File.SaveToFile Server.mappath(FileName)   
 				response.write "<script>window.opener.document."&upload.form("FormName")&"."&upload.form("EditName")&".value='"&FileName&"'</script>"

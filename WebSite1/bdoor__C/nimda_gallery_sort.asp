@@ -9,7 +9,7 @@
 <table width="100%" cellpadding="0" cellspacing="0">
   <tr>
     <td height="39" class="tr_bg">&nbsp;
-    <p><strong>Gallery栏目管理</strong> [<a href="Nimda_gallery_class.asp?Edit=B_Z#zy"><font color="#ff6600">增加一级分类</font></a>]</p>
+    <p><strong>Gallery栏目管理</strong> [<a href="Nimda_gallery_class.asp?Edit=gallery_big_add#zy"><font color="#ff6600">增加一级分类</font></a>]</p>
     <p>&nbsp;</p>
     <p><img src="/Clkj_Images/back_image/gallery_snagit.png" width="222" height="304"></p>
     <p>&nbsp;</p></td>

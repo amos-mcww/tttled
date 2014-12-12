@@ -62,6 +62,7 @@ conn.Open "driver={Microsoft Access Driver (*.mdb)};dbq="&Server.MapPath(""&Clkj
 		ImgPic=rs("picimg")'水印图片地址
 		Imgop=cint(rs("picof"))'水印图片是否开启
 		ImgWidth=cint(rs("clkj_config_sltk"))'缩略图宽度
+		gallery_ImgWidth=cint(rs("clkj_config_gallery_sltk"))'缩略图宽度
 		Imgyanse="&H"&rs("yanse")
 		Imgjiaodu=rs("jiaodu")
 		WebUrl=rs("clkj_config_url")'网站网址
@@ -76,7 +77,13 @@ conn.Open "driver={Microsoft Access Driver (*.mdb)};dbq="&Server.MapPath(""&Clkj
 		IF Not fso.FolderExists(Server.MapPath("../Clkj_Images/upfile/Bigpic/")) Then
 			   fso.CreateFolder(Server.MapPath("../Clkj_Images/upfile/Bigpic/"))
 		Else IF Not fso.FolderExists(Server.MapPath("../Clkj_Images/upfile/Smallpic/")) Then
-				fso.CreateFolder(Server.MapPath("../Clkj_Images/upfile/Smallpic/"))				
+				fso.CreateFolder(Server.MapPath("../Clkj_Images/upfile/Smallpic/"))	
+		Else IF Not fso.FolderExists(Server.MapPath("../Clkj_Images/upfile/gallery_Smallpic/")) Then
+				fso.CreateFolder(Server.MapPath("../Clkj_Images/upfile/gallery_Smallpic/"))					
+		Else IF Not fso.FolderExists(Server.MapPath("../Clkj_Images/upfile/gallery_Bigpic/")) Then
+				fso.CreateFolder(Server.MapPath("../Clkj_Images/upfile/gallery_Bigpic/"))		
+		End IF
+		End IF
 		End IF
 		End IF
 		
@@ -305,7 +312,7 @@ Function DelFenLeiImages(Delimg)
 							IF isobjinstalled("Persits.Jpeg") Then
 								Dimg="../"&Trim(Replace(PicStrssdel,"upfile/","upfile/Bigpic/"))
 								simg="../"&Trim(replace(PicStrssdel,"upfile/","upfile/Smallpic/"))		
-								Set fso1 = CreateObject("Scripting.FileSystemObject")
+								Set fso = CreateObject("Scripting.FileSystemObject")
 								Set fso3 = fso.getfile(server.mappath(""&simg&""))
 								Set fso4 = fso.getfile(server.mappath(""&Dimg&""))
 								fso3.delete
@@ -321,6 +328,139 @@ Function DelFenLeiImages(Delimg)
 				Next					
 						
 End Function
+
+'删除分类时调用图片删除 
+'为gallery所用,删除 upfile/gallery_Smallpic/ 与 upfile/gallery_Bigpic/ 下的Delimg图片,文件名是: clkj_prpic
+Function gallery_DelFenLeiImages(Delimg)
+			
+				Productsdel=Split(Delimg,",")'逐一删除图片
+				For Each PicStrssdel In Productsdel
+					IF PicStrssdel<>" " and PicStrssdel<>""  Then				
+							IF isobjinstalled("Persits.Jpeg") Then
+								Dimg="../"&Trim(Replace(PicStrssdel,"upfile/","upfile/gallery_Bigpic/"))
+								simg="../"&Trim(replace(PicStrssdel,"upfile/","upfile/gallery_Smallpic/"))		
+								Set fso = CreateObject("Scripting.FileSystemObject")
+								Set fso3 = fso.getfile(server.mappath(""&simg&""))
+								Set fso4 = fso.getfile(server.mappath(""&Dimg&""))
+								fso3.delete
+								fso4.delete								
+							Else
+								Dimg="../"&Trim(PicStrssdel)
+								Set fso5 = CreateObject("Scripting.FileSystemObject")
+								Set fso6 = fso5.getfile(server.mappath(""&Dimg&""))
+								fso6.delete
+								rs.close
+							End IF
+					End IF
+				Next					
+						
+End Function
+
+Function gallery_TradeCmsJpeg(Jpegclass,ImageUrl,LogoUrl,Textcontent,ImageW,Imagyanse,Imagejiaodu)
+		Dim Jpeg,Path,Logo,LogoPath,SmallJpeg,SmallPath,BigImg,SmallImg,picpath
+		Set fso = CreateObject("Scripting.FileSystemObject")
+		picpath=fso.FileExists(Server.MapPath(""&ImageUrl&""))
+		
+		IF picpath<>""then '控制空路径
+				BigImg = Replace(ImageUrl,"upfile/","upfile/gallery_Bigpic/")
+				SmallImg = Replace(ImageUrl,"upfile/","upfile/gallery_Smallpic/")
+			
+			'图片生成原图等比例缩放(小图生成)-------------------
+						
+			Set SmallJpeg = Server.CreateObject("Persits.Jpeg")
+				SmallPath = Server.MapPath(""&ImageUrl&"")
+				SmallJpeg.Open SmallPath
+					
+					SmallJpeg.Width = ImageW
+					SmallJpeg.Height = SmallJpeg.Width*SmallJpeg.OriginalHeight/SmallJpeg.OriginalWidth-1
+					SmallJpeg.Quality=100
+					SmallJpeg.Save Server.MapPath(""&SmallImg&"")'小图保存路径
+			Set SmallJpeg = Nothing
+
+			'图片水印-----------------------------------------------------------------------------------
+			
+			Set Jpeg = Server.CreateObject("Persits.Jpeg")
+				Path = Server.MapPath(""&ImageUrl&"")
+				Jpeg.Open Path
+					
+					IF Jpegclass=1 Then
+'打上图片水印---------------------------------------------------------------------
+					   
+						Set Logo  = Server.CreateObject("Persits.Jpeg") 
+							LogoPath  =  Server.MapPath( ""&LogoUrl&"") '在这里修改水印图片所在的路径 
+							'Logo.RegKey = "48958-77556-02411" 
+							Logo.Open LogoPath '重新定义水印图片的大小
+							    
+								Logo.Width = 150 '更改水印图片的宽度
+								if  Jpeg.width> Logo.Width then
+									Logo.Height = Logo.Width * Logo.OriginalHeight/Logo.OriginalWidth '按照原先的长宽比计算新的水印高度
+									
+									'--位置----
+									 IF Imagejiaodu=1 then				
+									 	Jpeg.DrawImage 10,10,Logo,0.8 '将水印放置左上角
+									 Else IF Imagejiaodu=2 then
+									 	Jpeg.DrawImage Jpeg.width-Logo.Width-10,10,Logo,0.8 '将水印放置右上角
+									 Else IF Imagejiaodu=3 then
+									 	Jpeg.DrawImage Jpeg.width-Logo.Width-10,Jpeg.height-Logo.Height-10,Logo,0.8 '将水印放置右下角
+									 Else IF Imagejiaodu=4 then
+									 	Jpeg.DrawImage 10,Jpeg.height-Logo.Height-10,Logo,0.8 '将水印放置左下角
+									 Else
+									 	Jpeg.DrawImage Jpeg.width/2-Logo.Width/2,Jpeg.height/2-Logo.Height/2,Logo,0.8 '将水印放置置于中间
+									 End IF
+									 End IF
+									 End IF
+									 End IF
+									
+									'----位置--
+								end if
+								Jpeg.Save Server.MapPath(""&BigImg&"")'大图片水印保存路径
+						Set Logo = Nothing
+					
+					Else
+					   '添加文字水印--------------------------------------------------------------------
+					    Jpeg.Canvas.Font.Rotation=0'角度
+						Jpeg.Canvas.Font.Color =Imagyanse'颜色
+						Jpeg.Canvas.Font.Family = "arial" '字体
+						Jpeg.Canvas.Font.Bold = True '是否加粗 
+						Jpeg.Canvas.Font.Size = 30'字体大小
+						jpeg.canvas.font.quality = 4 
+						
+						TitleWidth=Jpeg.Canvas.GetTextExtent(""&Textcontent&"")
+						if Jpeg.Width>TitleWidth then
+						
+							IF Imagejiaodu=1 then	
+								Jpeg.Canvas.Print 10, 10, ""&Textcontent&"" '左上角
+							Else IF Imagejiaodu=2 then
+								Jpeg.Canvas.Print Jpeg.Width-TitleWidth-10,10,""&Textcontent&""'文字打右上角
+							Else IF Imagejiaodu=3 then
+								Jpeg.Canvas.Print Jpeg.Width-TitleWidth-10,Jpeg.Height-40,""&Textcontent&""'文字打右下角
+							Else IF Imagejiaodu=4 then	
+								Jpeg.Canvas.Print 10,Jpeg.Height-40,""&Textcontent&""'文字打左下角
+							Else 
+								Jpeg.Canvas.Print Jpeg.Width/2-TitleWidth/2,Jpeg.Height/2,""&Textcontent&""'文字打中间
+							End IF
+							End IF
+							End IF
+							End IF
+							
+						end if
+						jpeg.Quality=100
+						Jpeg.Save Server.MapPath(""&BigImg&"")'大图片水印保存路径
+						
+					End IF
+						
+				Set Jpeg = Nothing
+				
+				'删除临时图片
+				Set fso = CreateObject("Scripting.FileSystemObject")
+				Set fso2 = fso.getfile(server.mappath(""&ImageUrl&""))
+					fso2.delete	
+		End IF
+End Function
+
+
+
+
 
 '获取ip
 
