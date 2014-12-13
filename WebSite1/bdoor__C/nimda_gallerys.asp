@@ -57,12 +57,12 @@ window.location.href="nimda_gallerys.asp?search="+document.formDel.searchs.value
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <!--DWLayoutTable-->
       <tr>
-        <td width="50" height="25" align="center" valign="middle" bgcolor="#F5F5F5"><strong>编号</strong></td>
-		<td width="55" height="25" align="center" valign="middle" bgcolor="#F5F5F5"><strong>排序</strong></td>
-        <td width="316" align="center" valign="middle" bgcolor="#F5F5F5"><strong>Gallery分类</strong></td>
-        <td width="238" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:0.5em;"><strong>Gallery名称</strong></td>
-        <td width="194" align="center" valign="middle" bgcolor="#F5F5F5"><strong>时间</strong></td>
-        <td width="131" align="center" valign="middle" bgcolor="#F5F5F5"><strong>操作</strong>
+        <td width="37" height="25" align="center" valign="middle" bgcolor="#F5F5F5"><strong>编号</strong></td>
+		<td width="40" height="25" align="center" valign="middle" bgcolor="#F5F5F5"><strong>排序</strong></td>
+        <td width="228" align="center" valign="middle" bgcolor="#F5F5F5"><strong>Gallery分类</strong></td>
+        <td width="197" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:0.5em;"><strong>Gallery名称</strong></td>
+        <td width="137" align="center" valign="middle" bgcolor="#F5F5F5"><strong>时间</strong></td>
+        <td width="68" align="center" valign="middle" bgcolor="#F5F5F5"><strong>操作</strong>
 		</td>
   </tr>
     </table>
@@ -112,18 +112,18 @@ proCount=rs.recordcount
 %> 
 
        <tr>
-        <td width="48" height="25" align="center" valign="middle" bgcolor="#F5F5F5" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><%=rs("clkj_prid")%></td>
-		<td width="56" height="25" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9; color:#ff0000;"><%=rs("clkj_paixu")%></td>
-        <td width="316" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;">
+        <td width="33" height="25" align="center" valign="middle" bgcolor="#F5F5F5" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><%=rs("clkj_prid")%></td>
+		<td width="43" height="25" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9; color:#ff0000;"><%=rs("clkj_paixu")%></td>
+        <td width="225" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;">
 		<% if rs("clkj_SmallClassName")="" then
 		    response.write rs("clkj_SmallClassName")
 			else
 			response.write rs("clkj_BigClassName")
 			end if
 		%></td>
-        <td width="232" align="left" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9; text-indent:0.5em;"><%=rs("clkj_prtitle")%></td>
-        <td width="233" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><%=rs("clkj_time")%></td>
-        <td width="97" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><a href=nimda_gallery.asp?clkj_prid=<%=rs("clkj_prid")%>&Edit=gallery_edit&clkj_BigClassID=<%=rs("clkj_BigClassID")%>&clkj_SmallClassID=<%=rs("clkj_SmallClassID")%>&ToPage=<%=Request.QueryString("ToPage")%>&sf=<%=request.QueryString("sf")%>>修改</a>
+        <td width="200" align="left" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9; text-indent:0.5em;"><%=rs("clkj_prtitle")%></td>
+        <td width="138" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><%=rs("clkj_time")%></td>
+        <td width="66" align="center" valign="middle" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><a href=nimda_gallery.asp?clkj_prid=<%=rs("clkj_prid")%>&Edit=gallery_edit&clkj_BigClassID=<%=rs("clkj_BigClassID")%>&clkj_SmallClassID=<%=rs("clkj_SmallClassID")%>&ToPage=<%=Request.QueryString("ToPage")%>&sf=<%=request.QueryString("sf")%>>修改</a>
           <input type="checkbox" name="delid" value="<%=rs("clkj_prid")%>">
         </td>
       </tr>

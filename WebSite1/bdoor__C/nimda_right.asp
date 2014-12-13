@@ -23,16 +23,17 @@
             <tr>
         <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=Nimda_mail_mange.asp target=mainFrame> 邮件订阅</a></td>
       </tr>
-      
+
 	  	        <tr>
         <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10">  <a href="nimda_data_backup.asp" target="mainFrame">数据备份</a></td>
-      </tr>	
+      </tr>
       	  	        <tr>
         <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10">  <a href="?xml=xml" target="mainFrame">生成sitemap</a></td>
-      </tr>	    
-<!--	        <tr>
+      </tr>
+
+        <tr>
         <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href="#">文件管理</a></td>
-      </tr>-->
+      </tr>
 
     </table>
 	</div>
@@ -53,7 +54,7 @@
       </tr>
 	      </table>
 	</div>
-  <tr> 
+  <tr>
 
   <tr>
   <td width=21 align="center" valign="middle"><img src="../Clkj_Images/back_image/back_left_7.gif" width="13" height="11"></td>
@@ -68,7 +69,7 @@
       <tr>
         <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> QQ：1181698019</td>
       </tr>
-	  
+
 	        <tr>
         <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> 联系人：黑蚂蚁</td>
       </tr>
@@ -83,12 +84,12 @@
 	<br>
 	<br>
 	<br>
-	
+
 
   <tr>
 	</td>
   </tr>
-  
+
 </TABLE>
 <script>
 

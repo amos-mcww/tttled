@@ -27,12 +27,12 @@ Else IF Request.Querystring("Edit")="honor_Edit" Then
 	Response.Redirect "nimda_honor_mange.asp?Lei=提示,修改改成功"
 	Rs.close
 Else If request.QueryString("Class")="hone_Del" Then
-		Call DelImage("hone_Del",cint(request("clkj_ryid")))'图片删除		
+		Call DelImage("hone_Del",cint(request("clkj_ryid")))'图片删除
 		set Rs=server.CreateObject("adodb.recordset")'数据库记录删除
-		Sql="delete * from clkj_Honor where clkj_ryid="&request("clkj_ryid")  		
+		Sql="delete * from clkj_Honor where clkj_ryid="&request("clkj_ryid")
 		conn.execute Sql
 		Response.Redirect "nimda_honor_mange.asp?Lei=提示,删除成功"
-End If			
+End If
 End If
 End If
 %>

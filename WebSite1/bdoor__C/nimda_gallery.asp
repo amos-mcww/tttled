@@ -1,7 +1,7 @@
 ﻿<!--#include file="../Clkj_Inc/inc.asp"-->
 <%
 IF Request.QueryString("picdel")="picdel" Then
-Call Delpic(cint(request("clkj_prid")),request.QueryString("purl"),"?clkj_prid="&request("clkj_prid")&"&Edit="&request.QueryString("Edit")&"&clkj_BigClassID="&request("clkj_BigClassID")&"&clkj_SmallClassID="&request("clkj_SmallClassID")&"&sf="&request.QueryString("sf")&"&ToPage="&request("Topage")&"#pi")
+Call gallery_Delpic(cint(request("clkj_prid")),request.QueryString("purl"),"?clkj_prid="&request("clkj_prid")&"&Edit="&request.QueryString("Edit")&"&clkj_BigClassID="&request("clkj_BigClassID")&"&clkj_SmallClassID="&request("clkj_SmallClassID")&"&sf="&request.QueryString("sf")&"&ToPage="&request("Topage")&"#pi")
 End IF
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -29,9 +29,9 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 }
 //-->
 </script>
-<script language="javascript"> 
-<!-- 
-var subcat = new Array(); 
+<script language="javascript">
+<!--
+var subcat = new Array();
 <%
 Dim subcat,rsClass2,sqlClass2
 set rsClass2=server.createobject("adodb.recordset")
@@ -50,17 +50,17 @@ rsClass2.movenext
 loop
 rsClass2.close
 %>
-function changeselect1(locationid) 
-{ 
-document.products.small_Lei.length = 0;          
-document.products.small_Lei.options[0] = new Option('请选择','');    
-for (i=0; i <subcat.length; i++) 
-{ 
-if (subcat[i][0] == locationid)                  
-{document.products.small_Lei.options[document.products.small_Lei.length] = new Option(subcat[i][1], subcat[i][2]);}  
-} 
-} 
-//--> 
+function changeselect1(locationid)
+{
+document.products.small_Lei.length = 0;
+document.products.small_Lei.options[0] = new Option('请选择','');
+for (i=0; i <subcat.length; i++)
+{
+if (subcat[i][0] == locationid)
+{document.products.small_Lei.options[document.products.small_Lei.length] = new Option(subcat[i][1], subcat[i][2]);}
+}
+}
+//-->
 </script>
 <body>
 <table width="100%" cellpadding="0" cellspacing="0">
@@ -69,9 +69,9 @@ if (subcat[i][0] == locationid)
   </tr>
 </table>
 <%
-IF Request.querystring("Edit")="gallery_edit" Then 
+IF Request.querystring("Edit")="gallery_edit" Then
 %>
-<form name="small_class" action="Nimda_function.asp?Class=Pro_Edit&clkj_BigClassID=<%=request("clkj_BigClassID")%>" method="post">
+<form name="small_class" action="Nimda_function.asp?Class=gallery_edit&clkj_BigClassID=<%=request("clkj_BigClassID")%>" method="post">
 <table width="100%" cellpdding="0" cellspacing="0">
 
 <tr>
@@ -90,7 +90,7 @@ IF Request.querystring("Edit")="gallery_edit" Then
     <option value="?clkj_BigClassID=<%=rs("clkj_BigClassID")%>&clkj_prid=<%=request("clkj_prid")%>&Edit=P_E" <%IF cint(request("clkj_BigClassID"))=rs("clkj_BigClassID") then%>selected<%end if%>><%=rs("clkj_BigClassName")%></option>
     <%
 	Rs.Movenext
-	Loop	
+	Loop
 	%>
   </select>
   <select name="small_Lei">
@@ -108,7 +108,7 @@ IF Request.querystring("Edit")="gallery_edit" Then
     <%
 	Rs.Movenext
 	Loop
-	End IF	
+	End IF
 	%>
   </select>
 </span></p>
@@ -160,15 +160,15 @@ if astrss<>"" and astrss<>" " then'空字符不执行
   <td align="center" valign="middle" height="30">上传产品图片</td>
     <td>
     <input name="clkj_prpic" type="text" id="clkj_prpic_<%=pis%>" value="<%=trim(astrss)%>" size="50" readonly>
-    <input type="button" name="Submit2" value="修改图片" onClick="window.open('upload.asp?formname=small_class&editname=clkj_prpic_<%=pis%>&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"><a href="?clkj_prid=<%=request("clkj_prid")%>&Edit=<%=request.QueryString("Edit")%>&clkj_BigClassID=<%=request("clkj_BigClassID")%>&clkj_SmallClassID=<%=request("clkj_SmallClassID")%>&picdel=picdel&purl=<%=trim(astrss)%>&sf=<%=request.QueryString("sf")%>&ToPage=<%=request("Topage")%>">删除</a>
-    <font color="#ff000">*</font>图片控制于200k内</td>
+    <input type="button" name="Submit2" value="修改图片" onClick="window.open('upload.asp?formname=small_class&editname=clkj_prpic_<%=pis%>&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')">
+    <a href="?clkj_prid=<%=request("clkj_prid")%>&Edit=<%=request.QueryString("Edit")%>&clkj_BigClassID=<%=request("clkj_BigClassID")%>&clkj_SmallClassID=<%=request("clkj_SmallClassID")%>&picdel=picdel&purl=<%=trim(astrss)%>&sf=<%=request.QueryString("sf")%>&ToPage=<%=request("Topage")%>">删除</a></td>
 </tr>
 <%
 end if
 pis=pis+1
 next
 %>
-<%IF request.QueryString("picadd")<>"add" Then%> 
+<%IF request.QueryString("picadd")<>"add" Then%>
 <tr>
  <td align="center" valign="middle" height="30"></td> <td align="center"><a href="?clkj_prid=<%=request("clkj_prid")%>&Edit=<%=request.QueryString("Edit")%>&clkj_BigClassID=<%=request("clkj_BigClassID")%>&clkj_SmallClassID=<%=request("clkj_SmallClassID")%>&sf=<%=request.QueryString("sf")%>&ToPage=<%=request("Topage")%>&picadd=add#pic"><strong><font color="#0000FF">增加图片</font></strong></a></td>
 </tr>
@@ -182,20 +182,20 @@ next
     <td rowspan="4" align="center" valign="middle" id="pic">上传产品图片</td>
     <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_o" size="50"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=small_class&editname=clkj_prpic_o&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')">
       <font color="#ff000">*</font>图片控制于200k内</td>
-  </tr> 
+  </tr>
     <tr>
     <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_t" size="50"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=small_class&editname=clkj_prpic_t&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
   </tr>
       <tr>
     <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_s" size="50"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=small_class&editname=clkj_prpic_s&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
-  </tr> 
+  </tr>
       <tr>
     <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_f" size="50"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=small_class&editname=clkj_prpic_f&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
-  </tr> 
+  </tr>
 <%
 End IF
 %>
-  
+
   <tr>
     <td align="center" valign="middle" height="30" id="pi">首页推荐产品</td>
     <td>
@@ -231,7 +231,7 @@ End IF
 <%
 Dim count1,rsClass1,sqlClass1
 set rsClass1=server.createobject("adodb.recordset")
-sqlClass1="select * from clkj_gallery_BigClass" 
+sqlClass1="select * from clkj_gallery_BigClass"
 rsClass1.open sqlClass1,conn,1,1
 %>
 <select name="big_Lei" id="big_Lei" onChange="changeselect1(this.value)">
@@ -246,7 +246,7 @@ loop
 rsClass1.close
 %>
 </select>
-<select name="small_Lei" id="small_Lei"> 
+<select name="small_Lei" id="small_Lei">
 <option value="" selected="selected">请选择二级分类</option>
 </select>
 <font color="#ff000">*</font>必选项
@@ -289,19 +289,19 @@ rsClass1.close
     <td rowspan="4" align="center" valign="middle"><p>上传产品图片</p>
       <p>(第一张为标题图)</p></td>
     <td height="30"><p>
-      <input name="clkj_prpic" type="text" id="clkj_prpic_1" size="70"> 
+      <input name="clkj_prpic" type="text" id="clkj_prpic_1" size="70">
       <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=products&editname=clkj_prpic_1&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')">
     </p></td>
-  </tr> 
+  </tr>
     <tr>
     <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_2" size="70"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=products&editname=clkj_prpic_2&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
   </tr>
       <tr>
     <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_3" size="70"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=products&editname=clkj_prpic_3&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
-  </tr> 
+  </tr>
       <tr>
         <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_4" size="70"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=products&editname=clkj_prpic_4&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
-    </tr>  
+    </tr>
   <tr>
     <td align="center" valign="middle" height="30">产品文件名</td>
     <td><p>
@@ -326,3 +326,4 @@ rsClass1.close
 
 </body>
 </html>
+
