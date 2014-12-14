@@ -3,29 +3,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="backdoor.css" type="text/css" rel="stylesheet">
-<title>Gallery栏目管理</title>
+<title>Gallery分类管理</title>
 </head>
 
 <body>
 <table width="100%" cellpadding="0" cellspacing="0">
   <tr>
     <td height="39" class="tr_bg">&nbsp;
-      <p><strong>Gallery栏目管理     </strong> <font color="red"><%=request.querystring("Lei")%></font></p>
+      <p><strong>Gallery分类管理     </strong> <font color="red"><%=request.querystring("Lei")%></font></p>
     </td>
   </tr>
 </table>
 
 <!-------------------------------------------------------   一级分类管理 -------------------------------------------->
-<% 
+<%
 ' 修改一级分类
-If request.querystring("Edit")="big_class_edit" Then 
+If request.querystring("Edit")="gallery_big_edit" Then
 	Set Rs=server.createobject("ADODB.Recordset")
 	Sql="select * from clkj_gallery_BigClass where clkj_BigClassID ="&request("clkj_BigClassID")
 	Rs.open Sql,conn,1,1
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-<form name="big_class_E" action="Nimda_function.asp?Class=gallery_big_Edit" method="post">
+<form name="big_class_E" action="Nimda_function.asp?Class=gallery_big_edit" method="post">
 <tr>
 <td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#FF0000;" id="xy">修改一级分类</td>
 </tr>
@@ -40,26 +40,19 @@ If request.querystring("Edit")="big_class_edit" Then
   <p>&nbsp;</p></td>
 </tr>
 <tr>
-<td width="25%" height="30" align="center" valign="middle"><p>静态文件链接名称</p></td>
-<td width="75%" align="left" class="h_td"><p>
-  <input name="big_wj_name" type="text" id="big_wj_name" value="<%=rs("clkj_BigClassurl")%>" size="70" />
-</p>
-  <p>用于生成静态作为文件名用,必须唯一</p>
-  <p>&nbsp;</p></td>
-</tr>
-<tr>
-<td width="25%" height="30" align="center" valign="middle">关键词<br>(keywords)</td>
-<td width="75%" align="left" class="h_td"><p>
-  <input name="big_key_name" type="text" id="big_key_name" value="<%=rs("clkj_BigClasskey")%>" size="70" />
-  </p>
-  <p>空格隔开</p>
-  <p>&nbsp;</p></td>
+  <td width="25%" height="30" align="center" valign="middle">关键词<br>(keywords)</td>
+  <td width="75%" align="left" class="h_td"><p>
+    <input name="big_key_name" type="text" id="big_key_name" value="<%=rs("clkj_BigClasskey")%>" size="70" />
+    </p>
+    <p>空格隔开</p>
+    <p>&nbsp;</p></td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">描述<br>(description)</td>
 <td width="75%" align="left" class="h_td"><p>
   <textarea name="big_ms_name" cols="75" rows="12" id="big_ms_name"><%=rs("clkj_BigClassdes")%></textarea>
-  建议控制在500个字以内</p>
+  </p>
+  <p>建议控制在500个字以内</p>
   <p>&nbsp;</p></td>
 </tr>
 <tr>
@@ -75,11 +68,12 @@ If request.querystring("Edit")="big_class_edit" Then
 </form>
 </table>
 <%
+' 添加一级分类 '
 Rs.close
 Else If request.querystring("Edit")="gallery_big_add" then
 %>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-<form name="big_class" action="Nimda_gallery.asp?Class=gallery_big_add" method="post">
+<form name="big_class" action="Nimda_function.asp?Class=gallery_big_add" method="post">
 <tr>
 <td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#ff0000;" id="zy">增加一级分类</td>
 </tr>
@@ -94,31 +88,17 @@ Else If request.querystring("Edit")="gallery_big_add" then
   <p>&nbsp;</p></td>
 </tr>
 <tr>
-<td width="25%" height="30" align="center" valign="middle"><p>静态文件链接名称</p></td>
-<td width="75%" align="left" class="h_td"><p>&nbsp;
-  </p>
-  <p>
-    <input name="big_wj_name" type="text" id="big_wj_name"  size="70" />
-  </p>
-  <p>用于生成静态作为文件名用,必须唯一</p>
-  <p>&nbsp;</p></td>
-</tr>
-<tr>
-<td width="25%" height="30" align="center" valign="middle">关键词<br>(keywords)</td>
-<td width="75%" align="left" class="h_td"><p>&nbsp;
-  </p>
-  <p>
+  <td width="25%" height="30" align="center" valign="middle">关键词<br>(keywords)</td>
+  <td width="75%" align="left" class="h_td"><p>
     <input name="big_key_name" type="text" id="big_key_name" size="70" />
-  </p>
-  <p>空格隔开</p>
-  <p>&nbsp;</p></td>
+    </p>
+    <p>空格隔开</p>
+    <p>&nbsp;</p></td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">描述<br>(description)</td>
-<td width="75%" align="left" class="h_td"><p>&nbsp;
-  </p>
-  <p>
-    <textarea name="big_ms_name" cols="75" rows="12" id="big_ms_name"></textarea>
+<td width="75%" align="left" class="h_td"><p>
+  <textarea name="big_ms_name" cols="75" rows="12" id="big_ms_name"></textarea>
   </p>
   <p>建议控制在500个字以内</p></td>
 </tr>
@@ -140,28 +120,34 @@ End If
 <br>
 <!-------------------------------------------------------   二级分类管理  -------------------------------------------->
 <br>
-<% If request.querystring("Edit")="S_E" Then 
+<%
+' 修改二级分类'
+  if request.querystring("Edit")="gallery_small_edit" Then
 	Set Rs=server.createobject("ADODB.Recordset")
 	Sql="select * from clkj_gallery_SmallClass where clkj_SmallClassID ="&request("clkj_SmallClassID")
 	Rs.open Sql,conn,1,1
 %>
 <table width="100%" cellpdding="0" cellspacing="0">
-<form name="small_class_E" action="Nimda_function.asp?Class=gallery_small_Edit" method="post">
+<form name="small_class_E" action="Nimda_function.asp?Class=gallery_small_edit" method="post">
 <tr>
-<td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#ff0000;" id="xr">修改二级分类</td>
+<td height="22" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#ff0000;" id="xr">修改二级分类</td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">一级分类名称</td>
-<td align="left" valign="middle" class="h_td"><select name="big_name" id="big_name">
-  <%
+<td align="left" valign="middle" class="h_td"><p>
+  <select name="big_name" id="big_name">
+    <%
   n=rs("clkj_SmallClassName")
   s=rs("clkj_SmallClassurl")
   k=rs("clkj_SmallClasskey")
   m=rs("clkj_smallClassdes")
   sp=rs("small_paixu")
   %>
-  <option value="<%=rs("clkj_BigClassID")%>"><%=rs("clkj_BigClassName")%></option><%Call Big_input()%></select>
-请选择一级分类</td>
+    <option value="<%=rs("clkj_BigClassID")%>"><%=rs("clkj_BigClassName")%></option>
+    <%Call gallery_Big_input()%>
+  </select>
+  请选择一级分类</p>
+  <p>&nbsp;</p></td>
 
 </tr>
 <tr>
@@ -173,22 +159,12 @@ End If
   <p>&nbsp;</p></td>
 </tr>
 <tr>
-<td width="25%" height="30" align="center" valign="middle"><p>静态文件链接名称
-  </p>
-  <p>&nbsp;</p></td>
-<td><p>
-  <input name="small_wj_name" type="text" id="small_wj_name" value="<%=s%>" size="70" />
-  </p>
-  <p><span class="h_td">用于生成静态作为文件名用,必须唯一</span></p>
-  <p>&nbsp;</p></td>
-</tr>
-<tr>
-<td width="25%" height="30" align="center" valign="middle">关键词<br>(keywords)</td>
-<td><p>
-  <input name="small_key_name" type="text" id="small_key_name" value="<%=k%>" size="70" />
-  </p>
-  <p><span class="h_td">空格隔开</span></p>
-  <p>&nbsp;</p></td>
+  <td width="25%" height="30" align="center" valign="middle">关键词<br>(keywords)</td>
+  <td><p>
+    <input name="small_key_name" type="text" id="small_key_name" value="<%=k%>" size="70" />
+    </p>
+    <p><span class="h_td">空格隔开</span></p>
+    <p>&nbsp;</p></td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">描述<br>(description)</td>
@@ -209,8 +185,9 @@ End If
 </table>
 
 <%
+' 添加二级分类'
 Rs.close
-Else  If request.querystring("Edit")="small_class_add" Then 
+Else  If request.querystring("Edit")="small_class_add" Then
 %>
 <table width="100%" cellpdding="0" cellspacing="0">
 <form name="small_class" action="Nimda_function.asp?Class=gallery_small_add" method="post">
@@ -219,9 +196,13 @@ Else  If request.querystring("Edit")="small_class_add" Then
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">一级分类名称</td>
-<td align="left" valign="middle" class="h_td"><select name="big_name" id="big_name">
- <option value="">请选择</option><%Call Big_input()%></select> 
-请选择一级分类</td>
+<td align="left" valign="middle" class="h_td"><p>
+  <select name="big_name" id="big_name">
+    <option value="">请选择</option>
+    <%Call gallery_Big_input()%>
+  </select>
+  请选择一级分类</p>
+  <p>&nbsp;</p></td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">二级分类名称</td>
@@ -232,14 +213,7 @@ Else  If request.querystring("Edit")="small_class_add" Then
   <p>&nbsp;</p></td>
 </tr>
 <tr>
-<td width="25%" height="30" align="center" valign="middle"><p>静态文件链接名称</p></td>
-<td><p>
-  <input name="small_wj_name" type="text" id="small_wj_name" size="70" />
-  </p>
-  <p><span class="h_td">用于生成静态作为文件名用,必须唯一</span></p>
-  <p>&nbsp;</p></td>
-</tr>
-<tr>
+
 <td width="25%" height="30" align="center" valign="middle">关键词<br>(keywords)</td>
 <td><p>
   <input name="small_key_name" type="text" id="small_key_name" size="70" />
@@ -248,11 +222,13 @@ Else  If request.querystring("Edit")="small_class_add" Then
   <p>&nbsp;</p></td>
 </tr>
 <tr>
-<td width="25%" height="30" align="center" valign="middle">描述<br>(description)</td>
-<td><p>
-  <textarea name="small_ms_name" cols="75" rows="12" id="small_ms_name"></textarea>
-  <span class="h_td">建议控制在500个字以内</span></p>
-  <p>&nbsp;</p></td>
+
+  <td width="25%" height="30" align="center" valign="middle">描述<br>(description)</td>
+  <td><p>
+    <textarea name="small_ms_name" cols="75" rows="12" id="small_ms_name"></textarea>
+    </p>
+    <p><span class="h_td">建议控制在500个字以内</span></p>
+    <p>&nbsp;</p></td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">序号</td>
@@ -261,7 +237,7 @@ Else  If request.querystring("Edit")="small_class_add" Then
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">&nbsp;</td>
-<td width="88%" align="left" class="h_td"><input type="submit" name="Submit" value="增加" /></td>
+<td width="88%" align="left" class="h_td"><input type="submit" name="Submit" value=" 增加 " /></td>
 </tr>
 </form>
 </table>

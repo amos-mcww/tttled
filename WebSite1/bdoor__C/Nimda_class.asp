@@ -14,7 +14,7 @@
 </table>
 
 <!-------------------------------------------------------   一级分类管理 -------------------------------------------->
-<% If request.querystring("Edit")="B_E" Then 
+<% If request.querystring("Edit")="B_E" Then
 	Set Rs=server.createobject("ADODB.Recordset")
 	Sql="select * from clkj_BigClass where clkj_BigClassID ="&request("clkj_BigClassID")
 	Rs.open Sql,conn,1,1
@@ -23,7 +23,7 @@
 <table width="100%" border="1" cellpadding="0" cellspacing="0">
 <form name="big_class_E" action="Nimda_function.asp?Class=big_Edit" method="post">
 <tr>
-<td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#FF0000;" id="xy">修改一级分类</td>
+<td height="18" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#FF0000;" id="xy">修改一级分类</td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">分类名称</td>
@@ -123,7 +123,7 @@ End If
 <br>
 <!-------------------------------------------------------   二级分类管理  -------------------------------------------->
 <br>
-<% If request.querystring("Edit")="S_E" Then 
+<% If request.querystring("Edit")="S_E" Then
 	Set Rs=server.createobject("ADODB.Recordset")
 	Sql="select * from clkj_SmallClass where clkj_SmallClassID ="&request("clkj_SmallClassID")
 	Rs.open Sql,conn,1,1
@@ -188,7 +188,7 @@ End If
 
 <%
 Rs.close
-Else  If request.querystring("Edit")="S_Z" Then 
+Else  If request.querystring("Edit")="S_Z" Then
 %>
 <table width="100%" cellpdding="0" cellspacing="0">
 <form name="small_class" action="Nimda_function.asp?Class=small" method="post">
@@ -198,7 +198,7 @@ Else  If request.querystring("Edit")="S_Z" Then
 <tr>
 <td width="12%" height="30" align="center" valign="middle">一级分类名称</td>
 <td align="left" valign="middle" class="h_td"><select name="big_name" id="big_name">
- <option value="">请选择</option><%Call Big_input()%></select> 
+ <option value="">请选择</option><%Call Big_input()%></select>
 请选择一级分类</td>
 </tr>
 <tr>

@@ -8,7 +8,7 @@ clkj_new_les="index"
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="shortcut icon" href="Clkj_Images/back_image/favicon.ico" mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" /> 
+<link rel="shortcut icon" href="Clkj_Images/back_image/favicon.ico" mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="Clkj_Images/back_image/favicon.ico"  mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
 <title><%=clkj_index_key%> - <%=clkj_co_name%></title>
 <meta name="keywords" content="<%=clkj_index_key%>" />
@@ -30,7 +30,7 @@ clkj_new_les="index"
             <div class="sem-mid-mid-bt">New Products</div>
             <div class="cb"></div>
             <div class="sem-mid-mid-2">
-			 <%=index_new%>             
+			 <%=index_new%>
             </div>
         </div>
         <div class="sem-mid-right">
@@ -39,10 +39,10 @@ clkj_new_les="index"
             <div class="sem-mid-right-1">
      <%=index_Hot%>
             </div>
-           
-        
+
+
         </div>
-    
+
     </div>
     <div class="cb"></div>
 

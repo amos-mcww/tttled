@@ -35,7 +35,7 @@ var subcat = new Array();
 <%
 Dim subcat,rsClass2,sqlClass2
 set rsClass2=server.createobject("adodb.recordset")
-sqlClass2="select * from clkj_SmallClass"
+sqlClass2="select * from clkj_gallery_SmallClass"
 rsClass2.open sqlClass2,conn,1,1
 %>
 var subval2 = new Array();
@@ -52,12 +52,12 @@ rsClass2.close
 %>
 function changeselect1(locationid)
 {
-document.products.small_Lei.length = 0;
-document.products.small_Lei.options[0] = new Option('请选择','');
+document.gallerys.small_Lei.length = 0;
+document.gallerys.small_Lei.options[0] = new Option('请选择二级分类','');
 for (i=0; i <subcat.length; i++)
 {
 if (subcat[i][0] == locationid)
-{document.products.small_Lei.options[document.products.small_Lei.length] = new Option(subcat[i][1], subcat[i][2]);}
+{document.gallerys.small_Lei.options[document.gallerys.small_Lei.length] = new Option(subcat[i][1], subcat[i][2]);}
 }
 }
 //-->
@@ -69,6 +69,7 @@ if (subcat[i][0] == locationid)
   </tr>
 </table>
 <%
+''gallery 修改
 IF Request.querystring("Edit")="gallery_edit" Then
 %>
 <form name="small_class" action="Nimda_function.asp?Class=gallery_edit&clkj_BigClassID=<%=request("clkj_BigClassID")%>" method="post">
@@ -87,20 +88,20 @@ IF Request.querystring("Edit")="gallery_edit" Then
 	Rs.open Sql,conn,1,1
 	Do while not Rs.Eof
 	%>
-    <option value="?clkj_BigClassID=<%=rs("clkj_BigClassID")%>&clkj_prid=<%=request("clkj_prid")%>&Edit=P_E" <%IF cint(request("clkj_BigClassID"))=rs("clkj_BigClassID") then%>selected<%end if%>><%=rs("clkj_BigClassName")%></option>
+    <option value="?clkj_BigClassID=<%=rs("clkj_BigClassID")%>&clkj_prid=<%=request("clkj_prid")%>&Edit=gallery_edit" <%IF cint(request("clkj_BigClassID"))=rs("clkj_BigClassID") then%>selected<%end if%>><%=rs("clkj_BigClassName")%></option>
     <%
 	Rs.Movenext
 	Loop
 	%>
   </select>
   <select name="small_Lei">
-    <option>暂无栏目</option>
+    <option>暂无二级分类</option>
     <%
 	Set Rs=server.createobject("ADODB.Recordset")
 	Sql="select * from clkj_gallery_SmallClass where clkj_BigClassID="&request("clkj_BigClassID")
 	Rs.open Sql,conn,1,1
 	IF Rs.bof or Rs.eof then
-	response.write "<option>暂无栏目</option>"
+	response.write "<option>暂无二级分类</option>"
 	Else
 	Do while not Rs.Eof
 	%>
@@ -112,40 +113,50 @@ IF Request.querystring("Edit")="gallery_edit" Then
 	%>
   </select>
 </span></p>
-  <p><span class="h_td"><font color="#ff000">*</font></span>一级类别必须选择 </p></td>
+  <p><span class="h_td"><font color="#ff000">*</font></span>一级类别必须选择 </p>
+  <p>&nbsp;</p></td>
 </tr>
 <%
 	Set Rs=server.createobject("ADODB.Recordset")
-	Sql="select * from clkj_Products where clkj_prid ="&cint(request("clkj_prid"))
+	Sql="select * from clkj_gallerys where clkj_prid ="&cint(request("clkj_prid"))
 	Rs.open Sql,conn,1,1
 %>
 <tr>
-<td width="15%" height="30" align="center" valign="middle">产品名称</td>
-<td><input name="clkj_prtitle" type="text" id="clkj_prtitle" value="<%=rs("clkj_prtitle")%>" size="50">
-  <font color="#ff000">*</font>标题</td>
+<td width="15%" height="30" align="center" valign="middle">Gallery名称</td>
+<td><p>
+  <input name="clkj_prtitle" type="text" id="clkj_prtitle" value="<%=rs("clkj_prtitle")%>" size="50">
+  <font color="#ff000">*</font>标题</p>
+  <p>&nbsp;</p></td>
 </tr>
 <tr>
-  <td align="center" valign="middle" height="30">产品排序</td>
+  <td align="center" valign="middle" height="30">排序</td>
   <td>
-    <input name="clkj_paixu" type="text" id="textfield" value="<%=rs("clkj_paixu")%>" size="5">
-    <font color="#ff000">*</font>从小到大排序,0,1,2,3,4,5.相同数字按id排序.默认下为'10000'</td>
+    <p>
+      <input name="clkj_paixu" type="text" id="textfield" value="<%=rs("clkj_paixu")%>" size="5">
+      <font color="#ff000">*</font>多个gallery项目中,数字越大该类越靠前</p>
+    <p>&nbsp;</p></td>
 </tr>
 <tr>
-<td width="15%" height="30" align="center" valign="middle">产品关键字<br>(keywords)</td>
-<td><input name="clkj_prkey" type="text" id="textfield2" value="<%=rs("clkj_prkey")%>">
-  关键字2-5个</td>
+<td width="15%" height="30" align="center" valign="middle">关键字<br>(keywords)</td>
+<td><p>
+  <input name="clkj_prkey" type="text" id="textfield2" value="<%=rs("clkj_prkey")%>">
+  空格隔开</p>
+  <p>&nbsp;</p></td>
 </tr>
 <tr>
-<td width="15%" height="30" align="center" valign="middle">产品页面描述<br>(description)</td>
-<td><textarea name="clkj_prprdes" cols="50" id="clkj_prprdes"><%=rs("clkj_prprdes")%></textarea>
-  描述100个字符以内</td>
+<td width="15%" height="30" align="center" valign="middle">页面描述<br>(description)</td>
+<td><p>
+  <textarea name="clkj_prprdes" cols="75" rows="3" id="clkj_prprdes"><%=rs("clkj_prprdes")%></textarea>
+  </p>
+  <p>建议500个字符以内</p>
+  <p>&nbsp;</p></td>
 </tr>
 
 
 
 <tr>
-  <td height="30" align="center" valign="middle">产品详细描述</td>
-  <td><textarea id="clkj_prcontent" name="clkj_prcontent" cols="100" rows="8" style="width:95%;height:300px;visibility:hidden;"><%=Server.HtmlEncode(rs("clkj_prcontent"))%></textarea>
+  <td height="30" align="center" valign="middle">详细描述</td>
+  <td><textarea id="clkj_prcontent" name="clkj_prcontent" cols="100" rows="15" style="width:95%;height:300px;visibility:hidden;"><%=Server.HtmlEncode(rs("clkj_prcontent"))%></textarea>
   </td>
 </tr>
 <%
@@ -170,7 +181,7 @@ next
 %>
 <%IF request.QueryString("picadd")<>"add" Then%>
 <tr>
- <td align="center" valign="middle" height="30"></td> <td align="center"><a href="?clkj_prid=<%=request("clkj_prid")%>&Edit=<%=request.QueryString("Edit")%>&clkj_BigClassID=<%=request("clkj_BigClassID")%>&clkj_SmallClassID=<%=request("clkj_SmallClassID")%>&sf=<%=request.QueryString("sf")%>&ToPage=<%=request("Topage")%>&picadd=add#pic"><strong><font color="#0000FF">增加图片</font></strong></a></td>
+ <td align="center" valign="middle" height="30"></td> <td align="center"><a href="?clkj_prid=<%=request("clkj_prid")%>&Edit=<%=request.QueryString("Edit")%>&clkj_BigClassID=<%=request("clkj_BigClassID")%>&clkj_SmallClassID=<%=request("clkj_SmallClassID")%>&sf=<%=request.QueryString("sf")%>&ToPage=<%=request("Topage")%>&picadd=add#pic"><strong><font color="#0000FF">添加图片</font></strong></a></td>
 </tr>
 <%else%>
 <tr>
@@ -180,8 +191,7 @@ next
    <%IF request.QueryString("picadd")="add" Then%>
     <tr>
     <td rowspan="4" align="center" valign="middle" id="pic">上传产品图片</td>
-    <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_o" size="50"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=small_class&editname=clkj_prpic_o&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')">
-      <font color="#ff000">*</font>图片控制于200k内</td>
+    <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_o" size="50"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=small_class&editname=clkj_prpic_o&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
   </tr>
     <tr>
     <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_t" size="50"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=small_class&editname=clkj_prpic_t&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
@@ -195,36 +205,23 @@ next
 <%
 End IF
 %>
-
   <tr>
-    <td align="center" valign="middle" height="30" id="pi">首页推荐产品</td>
-    <td>
-      推荐
-      <input name="clkj_hot" type="checkbox" id="clkj_hot" value="yes" <% if rs("clkj_hot")=1 then response.Write("checked") end if%>>
-      <font color="#ff000">*</font>首页显示 </td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle" height="30">产品文件名</td>
-    <td><input name="clkj_pr_url" type="text" id="clkj_pr_url" value="<%=rs("clkj_pr_url")%>">
-      <font color="#ff000">*默认为为空；生成静态时用的，必须唯一(文件名如:RF-Hotel-Lock)单词之前用&quot;-&quot;链接</font></td>
-  </tr>
-  <tr>
-  <td align="center" valign="middle" height="30">录入员</td>
-  <td><input name="c_ru" type="text" id="c_ru" value="<%=session("username")%>" size="15" >
-  录入时间<input name="clkj_time" type="text" id="clkj_time" value="<%=now()%>" size="20" readonly></td></tr>
+    <td align="center" valign="middle" height="30">录入员</td>
+    <td><input name="c_ru" type="text" id="c_ru" value="<%=session("username")%>" size="30" >
+    录入时间<input name="clkj_time" type="text" id="clkj_time" value="<%=now()%>" size="30" readonly></td></tr>
 <tr>
 <td width="15%" height="30" align="center" valign="middle">&nbsp;</td>
-<td width="85%" align="left" class="h_td"><input type="submit" name="Submit" value="修改" /><input type="hidden" name="clkj_prid" value="<%=request("clkj_prid")%>"/><input type="hidden" name="ToPage" value="<%if request.QueryString("ToPage")="" then response.write "1"%><%if request.QueryString("ToPage")<>"" then response.write request.QueryString("ToPage")%>"/><input type="hidden" name="sf" value="<%=request.QueryString("sf")%>"/><input type="checkbox" name="lscp" id="checkbox" value="yes"><input type="submit" name="Submit" value="发布类似产品" /><font color="red">在点"发布类似产品"按钮时，前面的沟必须钩上！</td>
+<td width="85%" align="left" class="h_td"><input type="submit" name="Submit" value="修改" /><input type="hidden" name="clkj_prid" value="<%=request("clkj_prid")%>"/><input type="hidden" name="ToPage" value="<%if request.QueryString("ToPage")="" then response.write "1"%><%if request.QueryString("ToPage")<>"" then response.write request.QueryString("ToPage")%>"/><input type="hidden" name="sf" value="<%=request.QueryString("sf")%>"/><input type="checkbox" name="lscp" id="checkbox" value="yes"><input type="submit" name="Submit" value="复制一个同样的产品" /><font color="red"></td>
 </tr>
 
 </table></form>
 
 <%Else%>
-<form name="products" action="Nimda_function.asp?Class=gallery_add" method="post">
+<form name="gallerys" action="Nimda_function.asp?Class=gallery_add" method="post">
 <table width="100%" cellpadding="0" cellspacing="0">
 
 <tr>
-<td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#ff0000;" id="zr"><p> Gallery增加     [<a href="Nimda_gallery_class.asp?Edit=gallery_big_add#zy"><font color="#3333CC">点这里增加一级分类</font></a>]</p></td>
+<td height="30" colspan="2" align="left" valign="middle" bgcolor="#F5F5F5" style="text-indent:2em;color:#ff0000;" id="zr"><p> Gallery添加     [<a href="Nimda_gallery_class.asp?Edit=gallery_big_add#zy"><font color="#3333CC">点这里添加一级分类</font></a>]</p></td>
 </tr>
 <tr>
 <td width="15%" align="center" valign="middle" height="30">类别选择</td><td>
@@ -258,66 +255,62 @@ rsClass1.close
     <font color="#ff000">*</font>标题 </td>
 </tr>
 <tr>
-  <td align="center" valign="middle" height="30">产品排序</td>
+  <td align="center" valign="middle" height="30">排序</td>
   <td>
     <input name="clkj_paixu" type="text" id="textfield" value="1" size="6">
     <font color="#ff000">*</font>多个gallery项目中,数字越大该类越靠前</td>
 </tr>
 <tr>
-  <td align="center" valign="middle" height="30">产品关键字<br>(keywords)</td>
+  <td align="center" valign="middle" height="30">关键字<br>(keywords)</td>
   <td>
     <input name="clkj_prkey" type="text" id="textfield" size="70">
     <font color="#ff000">*</font>空格隔开</td>
 </tr>
 <tr>
-  <td align="center" valign="middle" height="45"><p>产品页面描述<br>(description)</p>
+  <td align="center" valign="middle" height="45"><p>页面描述<br>(description)</p>
     <p>&nbsp;</p></td>
   <td><p>
-    <textarea name="clkj_prprdes" cols="75" rows="5" id="clkj_prprdes"></textarea>
-    <font color="#ff000">*</font>建议500个字符以内</p></td>
+    <textarea name="clkj_prprdes" cols="75" rows="3" id="clkj_prprdes"></textarea>
+    </p>
+    <p><font color="#ff000">*</font>建议500个字符以内</p>
+    <p>&nbsp;</p></td>
 </tr>
 <!--<tr>
   <td align="center" valign="middle" height="45">产品页面顶部信息</td>
   <td><textarea name="clkj_db" cols="50" rows="5" id="clkj_db"></textarea></td>
 </tr>-->
 <tr>
-  <td width="15%" align="center" valign="middle">产品详细描述</td>
+  <td width="15%" align="center" valign="middle">详细描述</td>
   <td>
 <textarea id="clkj_prcontent" name="clkj_prcontent" cols="100" rows="15" style="width:96%;height:400px;visibility:hidden;"></textarea></td>
   </tr>
   <tr>
-    <td rowspan="4" align="center" valign="middle"><p>上传产品图片</p>
+    <td rowspan="4" align="center" valign="middle"><p>上传图片</p>
       <p>(第一张为标题图)</p></td>
     <td height="30"><p>
       <input name="clkj_prpic" type="text" id="clkj_prpic_1" size="70">
-      <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=products&editname=clkj_prpic_1&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')">
+      <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=gallerys&editname=clkj_prpic_1&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')">
     </p></td>
   </tr>
     <tr>
-    <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_2" size="70"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=products&editname=clkj_prpic_2&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
+    <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_2" size="70"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=gallerys&editname=clkj_prpic_2&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
   </tr>
       <tr>
-    <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_3" size="70"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=products&editname=clkj_prpic_3&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
+    <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_3" size="70"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=gallerys&editname=clkj_prpic_3&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
   </tr>
       <tr>
-        <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_4" size="70"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=products&editname=clkj_prpic_4&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
+        <td height="30"><input name="clkj_prpic" type="text" id="clkj_prpic_4" size="70"> <input type="button" name="Submit2" value="上传图片" onClick="window.open('upload.asp?formname=gallerys&editname=clkj_prpic_4&uppath=../Clkj_Images/upfile&filelx=jpg','','status=no,scrollbars=no,top=400,left=400,width=600,height=165')"></td>
     </tr>
   <tr>
-    <td align="center" valign="middle" height="30">产品文件名</td>
-    <td><p>
-      <input name="clkj_pr_url" type="text" id="clkj_pr_url">
-      </p>
-      <p><font color="#ff000">生成静态时用的，必须唯一(文件名如:RF-Hotel-Lock)单词之前用&quot;-&quot;链接</font></p></td>
-  </tr>
-  <tr>
-  <td align="center" valign="middle" height="30">录入员</td>
-  <td><input name="c_ru" type="text" id="c_ru" value="<%=session("username")%>" size="30" >
-  <!--录入时间-->
-    <input name="clkj_time" type="hidden" id="clkj_time" value="<%=now()%>" size="20" readonly></td>
+    <td align="center" valign="middle" height="30">录入员</td>
+    <td><input name="c_ru" type="text" id="c_ru" value="<%=session("username")%>" size="30" >
+      <!--录入时间-->
+      <input name="clkj_time" type="hidden" id="clkj_time" value="<%=now()%>"
+      size="30" readonly></td>
 </tr>
   <tr>
     <td align="center" valign="middle" height="30">&nbsp;</td>
-    <td><input type="submit" name="Submit" value="添加产品" ></td>
+    <td><input type="submit" name="Submit" value="添加" ></td>
   </tr>
 
 </table>

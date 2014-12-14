@@ -59,7 +59,7 @@
 	</div>
 	</td>
   </tr>
-  
+
   <tr>
   <td width=21 align="center" valign="middle"><img src="../Clkj_Images/back_image/back_left_7.gif" width="13" height="11"></td>
     <td height="30" width=168 align="left" valign="middle" bgcolor="#F7F7F7" background="../Clkj_Images/back_image/back_left_3.png" class="sec_menuu" id="imgmenu2" style="cursor:hand" onClick="showsubmenu(2)">产品管理</td>
@@ -73,7 +73,7 @@
       <tr>
         <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_fenlei.asp target=mainFrame> 产品栏目</a></td>
       </tr>
-	  
+
 	        <tr>
         <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_product.asp target=mainFrame>产品添加</a></td>
       </tr>
@@ -87,7 +87,7 @@
 	</div>
 	</td>
   </tr>
-  
+
 
   <tr>
   <td width=21 align="center" valign="middle"><img src="../Clkj_Images/back_image/back_left_7.gif" width="13" height="11"></td>
@@ -102,7 +102,7 @@
       <tr>
         <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_news_mange.asp target=mainFrame>信息管理</a></td>
       </tr>
-	  
+
 	        <tr>
         <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"><a href=nimda_news.asp target=mainFrame> 信息添加</a></td>
       </tr>
@@ -116,7 +116,7 @@
 	</div>
 	</td>
   </tr>
- 
+
 
 <!--gallery start-->
 <tr>
@@ -130,14 +130,14 @@
 		<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #F7F7F7">
       <!--DWLayoutTable-->
 	<tr>
-        <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_gallery_sort.asp target=mainFrame>Gallery栏目</a></td>
+        <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_gallery_sort.asp target=mainFrame>分类管理</a></td>
 	</tr>
-	  
+
 	<tr>
-        <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_gallery.asp target=mainFrame>Gallery添加</a></td>
+        <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_gallery.asp target=mainFrame>gallery添加</a></td>
 	</tr>
 	<tr>
-        <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_gallerys.asp target=mainFrame>Gallery管理</a></td>
+        <td width="150" height="27" align="left" valign="middle" onMouseOut="this.className='bg2';" onMouseOver="this.className='bg';" class="bg2"><img src="../Clkj_Images/back_image/back_left_6.gif" width="7" height="10"> <a href=nimda_gallerys.asp target=mainFrame>gallery管理</a></td>
 	</tr>
     </table>
 	</div>
@@ -146,11 +146,11 @@
 	<br>
 	<br><br><br>
 	</td>
-  </tr>  
-<!--gallery end--> 	 
-  
-  
-  
+  </tr>
+<!--gallery end-->
+
+
+
 </TABLE>
 <script>
 

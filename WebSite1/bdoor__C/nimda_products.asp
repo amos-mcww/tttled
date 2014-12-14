@@ -45,7 +45,7 @@ window.location.href="nimda_products.asp?search="+document.formDel.searchs.value
 <input name="batch" type="submit" value="删除所选" onClick="ConfirmDel('是否确定删除？删除后不能恢复!');" /> </span> <span style=" float:right;">产品搜索：<input name="searchs" type="text" value="请输入产品标题" onMouseOver="this.select()" style="line-height:18px; height:20px;"> <a href="#" onClick="open4()">查询</a>&nbsp; </span></td>
   </tr>
     <tr>
-    <td height="30"bgcolor="#E7EFF8">&nbsp;栏目: &nbsp;<%call big_lie()%> 
+    <td height="30"bgcolor="#E7EFF8">&nbsp;栏目: &nbsp;<%call big_lie()%>
     &nbsp;&nbsp;[<a href="nimda_product.asp">增加产品</a>]</td>
   </tr>
   <%if request("clkj_BigClassID")<>"" then%>
@@ -72,7 +72,7 @@ window.location.href="nimda_products.asp?search="+document.formDel.searchs.value
 
   <tr>
     <td height="20" valign="top"><table width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #A5B9C9;">
-	
+
 	<%
 	if request("clkj_BigClassID")<>""and request.QueryString("clkj_BigClassName")<>"" and request.QueryString("clkj_SmallClassName")<>"" and request("clkj_SmallClassID")<>"" then
 	sql="select * from clkj_Products where clkj_SmallClassID ="&request("clkj_SmallClassID")&" order by clkj_paixu,clkj_prid asc"
@@ -80,9 +80,9 @@ window.location.href="nimda_products.asp?search="+document.formDel.searchs.value
 	sql="select * from clkj_Products where clkj_BigClassID ="&request("clkj_BigClassID")&" order by clkj_paixu,clkj_prid asc"
 	Elseif request("hot")=1 then
 	sql="select * from clkj_Products where clkj_hot=1 order by clkj_paixu,clkj_prid asc"
-	else	
+	else
 	sql="select * from clkj_Products where clkj_prtitle like '%"&request.QueryString("search")&"%' order by clkj_paixu,clkj_prid asc"
- 
+
 	End IF
 	set rs=server.CreateObject("adodb.recordset")
 	rs.open sql,conn,1,3
@@ -107,10 +107,10 @@ proCount=rs.recordcount
 		  end if
 	intCurPage=CInt(intCurPage)
 	For i = 1 to rs.PageSize
-	if rs.EOF then     
-	Exit For 
+	if rs.EOF then
+	Exit For
 	end if
-%> 
+%>
 
        <tr>
         <td width="78" height="25" align="center" valign="middle" bgcolor="#F5F5F5" style="border-bottom:1px solid #A5B9C9;border-right:1px solid #A5B9C9;"><%=rs("clkj_prid")%></td>
@@ -135,15 +135,15 @@ proCount=rs.recordcount
  next
  end if
  %>
- 
+
  <%
 dim link
 if request("clkj_BigClassID")<>"" and request("clkj_SmallClassID")<>"" then
- 
+
 	link="?clkj_BigClassID="&request("clkj_BigClassID")&"&clkj_BigClassName="&request("clkj_BigClassName")&"&clkj_SmallClassID="&request("clkj_SmallClassID")&"&clkj_SmallClassName="&request("clkj_SmallClassName")&"&sf=s&"
- 
+
 elseif request("clkj_BigClassID")<>"" and request("clkj_SmallClassID")="" then
- 
+
 	link="?clkj_BigClassID="&request("clkj_BigClassID")&"&clkj_BigClassName="&request("clkj_BigClassName")&"&sf=b&"
 elseif request("hot")=1 then
 	link="?hot=1&"
@@ -151,7 +151,7 @@ else
 	link="?"
 end if
 
-%> 
+%>
  <tr><td height=25 colspan="7" align="right" valign="middle" bgcolor="#F5F5F5"><div> 共&nbsp;<font color="#ff0000"><%=proCount%></font>&nbsp;条, 当前第：<font color="#ff0000"><%=intCurPage%></font>/<font color="#ff0000"><%=rs.PageCount%></font>页
                 <% if intCurPage<>1 then %>
                 <a href="<%=link%>ToPage=1" class="redlink">首页</a>&nbsp;|&nbsp;<a href="<%=link%>ToPage=<%=intCurPage-1%>" class="redlink">上一页</a>&nbsp;|
@@ -170,7 +170,7 @@ end if
 跳转到第<input name="go" type="text" id="go" style="width:80px;height:20px;text-align:center;vertical:middle" size="80">
 页
 <input type="button" name="skip" value="查询" onClick="window.location.href='<%=link%>ToPage='+document.getElementById('go').value">
- 
+
 
 </td></tr></table>
 </form>

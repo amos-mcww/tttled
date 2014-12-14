@@ -26,7 +26,7 @@ If request.QueryString("Class")="big" Then '一级栏目添加
         Rs("clkj_BigClassdes") = request.Form("big_ms_name")
         Rs("big_paixu") = request.Form("big_paixu")
         Rs.update
-        Response.Redirect "Nimda_class.asp?Lei=增加成功&Edit=B_Z"
+        Response.Redirect "Nimda_class.asp?Lei=添加成功&Edit=B_Z"
         RS.close
 	End If
 
@@ -120,7 +120,7 @@ elseif request.QueryString("Class")="small" Then '二级栏目添加
             Rs("clkj_tj")=0
         End If
         Rs.update
-        Response.Redirect "Nimda_class.asp?Lei=二级栏目增加成功&Edit=S_Z"
+        Response.Redirect "Nimda_class.asp?Lei=二级栏目添加成功&Edit=S_Z"
         RS.close
         Rss.close
     End If
@@ -162,7 +162,7 @@ elseif request.QueryString("Class")="small_Edit" Then '二级栏目修改
      end if
     Rs_sp.close
     Response.Redirect "Nimda_class.asp?Lei=二级栏目修改成功&Edit=S_E&clkj_SmallClassID="&request("clkj_SmallClassID")
-Rs.close
+    Rs.close
 
 elseif request.QueryString("Class")="small_Del" Then'二级栏目删除
     Sql="delete * from clkj_SmallClass where clkj_SmallClassID = "&request("clkj_SmallClassID")
@@ -197,7 +197,7 @@ elseif request.QueryString("Class")="meun" Then '一级栏目添加
         Rs("clkj_menudes") = request.Form("meun_ms")
         Rs("clkj_paixu") = request.Form("meun_px")
         Rs.update
-        Response.Redirect "Nimda_menu.asp?Lei=栏目增加成功"
+        Response.Redirect "Nimda_menu.asp?Lei=栏目添加成功"
         RS.close
     End If
 
@@ -299,7 +299,7 @@ elseif Request.Querystring("Class")="links" Then
     	Rs("clkj_LinkURL") = Request.Form("clkj_links")
     	Rs("linkspic")= replace(Request.Form("linkspic"),"../","")
     	Rs.update
-    	Response.Redirect "Nimda_links.asp?Lei=增加改成功"
+    	Response.Redirect "Nimda_links.asp?Lei=添加改成功"
     	Rs.close
   End If
 
@@ -332,7 +332,7 @@ elseif Request.Querystring("Class")="pas" Then
     	Rs("clkj_password") = Md5(Request.Form("user_pas"))
     	Rs("clkj_flg") = Request.Form("clkj_flg")
     	Rs.update
-    	Response.Redirect "Nimda_user.asp?Lei=增加成功"
+    	Response.Redirect "Nimda_user.asp?Lei=添加成功"
     	Rs.close
    End if
 
@@ -469,7 +469,7 @@ elseif Request.Querystring("Class")="Product" Then
             next
        End iF
 
-        'call shengchen(tt)增加生成静态
+        'call shengchen(tt)添加生成静态
         Response.Redirect "Nimda_products.asp"
         'Response.Redirect "Nimda_product.asp?Lei=添加成功"
         Rs.close
@@ -634,7 +634,7 @@ elseif Request.Querystring("Class")="keyy" Then
     	Rs("keytitle") = Request.Form("key_title")
     	Rs("keylink") = Request.Form("key_links")
     	Rs.update
-    	Response.Redirect "Nimda_key.asp?Lei=增加改成功"
+    	Response.Redirect "Nimda_key.asp?Lei=添加改成功"
     	Rs.close
     end if
 
@@ -657,8 +657,8 @@ elseif request.QueryString("Class")="key_Del" Then'栏目删除
 
 '''''''gallery 操作
 '''''''''''''''''''''''''''''''' 一级分类 '''''''''''''''''''''''''''''''''''''''''''''''''''
-'1. 修改一级分类
-elseif request.QueryString("Class")="gallery_big_Edit" Then
+'1.1: 修改一级分类
+elseif request.QueryString("Class")="gallery_big_edit" Then
     Set Rs=server.createobject("ADODB.Recordset")
     Sql="select * from clkj_gallery_BigClass where clkj_BigClassID = "&request("clkj_BigClassID")
     Rs.open Sql,conn,1,3
@@ -697,29 +697,29 @@ elseif request.QueryString("Class")="gallery_big_Edit" Then
 
     'Response.Redirect "Nimda_gallery_class.asp?Lei=修改成功&Edit=B_E&clkj_BigClassID="&request("clkj_BigClassID")
     'response.write "<script language='javascript'>alert('修改成功!');</script>"
-    Response.Redirect "Nimda_gallery_sort.asp?Lei=一级分类修改成功"
+    Response.Redirect "Nimda_gallery_sort.asp"
     Rs.close
 
-' 2. 增加一级分类
+' 1.2: 添加一级分类
 elseif request.QueryString("Class")="gallery_big_add" Then
     Set Rs=server.createobject("ADODB.Recordset")
-    Sql="select * from clkj_gallery_BigClass where clkj_BigClassName = '"&trim(request.Form("big_name"))&"' or clkj_BigClassurl= '"&trim(request.Form("big_wj_name"))&"'"   '判断是否有重名
+    Sql="select * from clkj_gallery_BigClass where clkj_BigClassName = '"&trim(request.Form("big_name"))&"'"
     Rs.open Sql,conn,1,3
-    If Not (Rs.Eof and Rs.Bof) or request.Form("big_name")="" or request.Form("big_wj_name")="" Then
-        response.write "<script language='javascript'>alert('[该一级分类已存在]或[一级分类名为空]或[静态文件链接名称为空]，请更正');history.go(-1);</script>"
+    If Not (Rs.Eof and Rs.Bof) or request.Form("big_name")="" Then
+        response.write "<script language='javascript'>alert('[该一级分类已存在]或[一级分类名为空]，请更正');history.go(-1);</script>"
     Else
         Rs.Addnew
         Rs("clkj_BigClassName") = trim(request.Form("big_name"))
-        RS("clkj_BigClassurl") = trim(request.Form("big_wj_name"))
+        RS("clkj_BigClassurl") = trim(request.Form("big_name"))
         Rs("clkj_BigClasskey") = request.Form("big_key_name")
         Rs("clkj_BigClassdes") = request.Form("big_ms_name")
         Rs("big_paixu") = request.Form("big_paixu")
         Rs.update
-        Response.Redirect "Nimda_gallery_class.asp?Lei=增加成功&Edit=B_Z"
+        Response.Redirect "Nimda_gallery_class.asp?Lei=添加成功&Edit=gallery_big_add"
         RS.close
     End If
 
-' 3. 删除一级分类
+' 1.3: 删除一级分类
 elseif request.QueryString("Class")="gallery_big_class_del" Then
     Sql="delete * from clkj_gallery_BigClass where clkj_BigClassID = "&request("clkj_BigClassID")
     conn.execute Sql
@@ -740,13 +740,56 @@ elseif request.QueryString("Class")="gallery_big_class_del" Then
 
     Response.Redirect "Nimda_gallery_sort.asp?Lei=一级分类删除成功"
 
-' 4. 添加二级分类
+' 2.1: 修改二级分类
+elseif request.QueryString("Class")="gallery_small_edit" Then
+    Set Rs=server.createobject("ADODB.Recordset")
+    Sql="select * from clkj_gallery_SmallClass where clkj_SmallClassID = "&request("clkj_SmallClassID")
+    Rs.open Sql,conn,1,3
+    Rs("clkj_BigClassID") = trim(request.Form("big_name"))
+    '读出大类别名称，写入小类别表中开始
+    Set Rss=server.createobject("ADODB.Recordset")
+    Sqls="select * from clkj_gallery_BigClass where clkj_BigClassID ="&trim(request.Form("big_name"))
+    Rss.open Sqls,conn,1,1
+    big_name=Rss("clkj_BigClassName")
+    '读出大类别名称，写入小类别表中结束
+    Rs("clkj_BigClassName") = big_name
+    Rs("clkj_smallClassName") = trim(request.Form("small_name"))
+    RS("clkj_smallClassurl") = trim(request.Form("small_name"))
+    Rs("clkj_smallClasskey") = request.Form("small_key_name")
+    Rs("clkj_smallClassdes") = request.Form("small_ms_name")
+    Rs("small_paixu") = request.Form("small_paixu")
+    if request.Form("clkj_tj")="yes" then
+        Rs("clkj_tj")=1
+    else
+        Rs("clkj_tj")=0
+    End If
+    Rs.update
+
+    '修改二级栏目时相对应的修改gallery中相对应的类别
+    Set Rs_sp=server.createobject("ADODB.Recordset")
+    Sql_sp="select * from clkj_gallery where clkj_SmallClassID = "&request("clkj_SmallClassID")
+    Rs_sp.open Sql_sp,conn,1,3
+    if not rs_sp.eof then
+        do while not rs_sp.eof
+             Rs_sp("clkj_SmallClassName") = trim(request.Form("small_name"))
+             Rs_sp("clkj_BigClassName")=big_name
+             Rs_sp.update
+             Rs_sp.movenext
+        Loop
+     end if
+    Rs_sp.close
+    ''Response.Redirect "Nimda_gallery_class.asp?Lei=二级分类修改成功&Edit=gallery_small_edit&clkj_SmallClassID="&request("clkj_SmallClassID")
+    Response.Redirect "Nimda_gallery_sort.asp"
+    Rs.close
+
+' 2.2: 添加二级分类
 elseif request.QueryString("Class")="gallery_small_add" Then
     Set Rs=server.createobject("ADODB.Recordset")
-    Sql="select * from clkj_gallery_SmallClass where clkj_SmallClassName = '"&trim(request.Form("small_name"))&"' or clkj_SmallClassurl= '"&trim(request.Form("small_wj_name"))&"'"   '判断是否有重名
+    Sql="select * from clkj_gallery_SmallClass where clkj_SmallClassName = '"&trim(request.Form("small_name"))&"'"
     Rs.open Sql,conn,1,3
-    If Not (Rs.Eof and Rs.Bof) or request.Form("small_name")="" or request.form("big_name")="" or request.form("small_wj_name")=""Then
-        response.write "<script language='javascript'>alert('[该二级分类已存在]或[二级栏目名为空]或[静态文件链接名称为空]，请更正');history.go(-1);</script>"
+    '判断是否有重名
+    If Not (Rs.Eof and Rs.Bof) or request.Form("small_name")="" or request.form("big_name")="" Then
+        response.write "<script language='javascript'>alert('[该二级分类已存在]或[二级栏目名为空]或[该一级分类为空]，请更正');history.go(-1);</script>"
     Else
         Rs.Addnew
         Rs("clkj_BigClassID") = trim(request.Form("big_name"))
@@ -759,20 +802,41 @@ elseif request.QueryString("Class")="gallery_small_add" Then
         '读出大类别名称，写入小类别表中结束
         Rs("clkj_BigClassName") = big_name
         Rs("clkj_smallClassName") = trim(request.Form("small_name"))
-        RS("clkj_smallClassurl") = trim(request.Form("small_wj_name"))
+        RS("clkj_smallClassurl") = trim(request.Form("small_name"))
         Rs("clkj_smallClasskey") = request.Form("small_key_name")
         Rs("clkj_smallClassdes") = request.Form("small_ms_name")
         Rs("small_paixu") = request.Form("small_paixu")
         if request.Form("clkj_tj")="yes" then
             Rs("clkj_tj")=1
-        else Rs("clkj_tj")=0
+        else
+            Rs("clkj_tj")=0
         End If
         Rs.update
-        Response.Redirect "Nimda_gallery_class.asp?Lei=二级栏目增加成功&Edit=S_Z"
+        Response.Redirect "Nimda_gallery_class.asp?Lei=二级分类添加成功&Edit=small_class_add"&request("clkj_SmallClassID")
         RS.close
         Rss.close
     End If
+
+' 2.3: 删除二级分类
+elseif request.QueryString("Class")="gallery_small_class_del" Then
+    Sql="delete * from clkj_gallery_SmallClass where clkj_SmallClassID = "&request("clkj_SmallClassID")
+    conn.execute Sql
+    Set Rs_d=server.createobject("ADODB.Recordset")
+    Sql_del="select * from clkj_gallery where clkj_SmallClassID = "&request("clkj_SmallClassID")
+    Rs_d.open Sql_del,conn,1,1
+    do while not Rs_d.eof
+        Call gallery_DelFenLeiImages(Rs_d("clkj_prpic"))
+        Rs_d.Movenext
+    Loop
+    Rs_d.close
+    Sql_s="delete * from clkj_gallery where clkj_SmallClassID = "&request("clkj_SmallClassID")
+    conn.execute Sql_s
+    Response.Redirect "Nimda_gallery_sort.asp?Lei=二级删除成功"
+
 '''''''''''''''''''''''''''''''' 一级分类 END '''''''''''''''''''''''''''''''''''''''''''''''''''
+';;;;;;;;;;;;;;;;;;;;;;;;;;;;; 5. gallery 管理 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+' gallery 添加 '
+' 添加 gallery 内容'
 elseif Request.Querystring("Class")="gallery_add" Then
     Set Rs=server.createobject("ADODB.Recordset")
     Sql="select * from clkj_gallery"
@@ -842,12 +906,10 @@ elseif Request.Querystring("Class")="gallery_add" Then
             next
         end if
 
-        'call shengchen(tt)增加生成静态
-        Response.Redirect "Nimda_products.asp"
-        'Response.Redirect "Nimda_product.asp?Lei=添加成功"
+        'call shengchen(tt)添加生成静态
+        Response.Redirect "Nimda_gallerys.asp"
         Rs.close
     End IF
-';;;;;;;;;;;;;;;;;;;;;;;;;;;;; 5. gallery 管理 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ' 5.1 gallery 删除
 elseif Request.Querystring("Class")="gallery_del" Then
     delid=Split(request("delid"),",")'图片删除
@@ -875,9 +937,9 @@ elseif Request.Querystring("Class")="gallery_edit" Then
     end if
     Rs.open Sql,conn,1,3
 	IF request.Form("big_Lei")="" Then
-        response.write "<script language='javascript'>alert('注意：产品一级类别,产品文件名不能为空');history.go(-1);</script>"
+        response.write "<script language='javascript'>alert('注意：一级类别名不能为空');history.go(-1);</script>"
 	elseif request.Form("lscp")="yes" then'发布类似产品
-	Rs.Addnew
+	    Rs.Addnew
 	end if
     Rs("clkj_BigClassID") = request("clkj_BigClassID")
     '读出大类别名称，写入表中开始
@@ -886,7 +948,7 @@ elseif Request.Querystring("Class")="gallery_edit" Then
     Rss.open Sqls,conn,1,1
     if not Rss.eof then
         bigg_name=Rss("clkj_BigClassName")
-        bigll_ml=Rss("clkj_BigClassurl")
+        bigll_ml=Rss("clkj_BigClassName")
     End if
     Rss.close
     '读出大类别名称，写入表中结束
@@ -897,7 +959,7 @@ elseif Request.Querystring("Class")="gallery_edit" Then
         Sqlss="select * from clkj_gallery_SmallClass where clkj_SmallClassID="&trim(request.Form("small_Lei"))
         Rsss.open Sqlss,conn,1,1
         smalll_name=Rsss("clkj_SmallClassName")
-        smalll_ml=Rsss("clkj_SmallClassurl")
+        smalll_ml=Rsss("clkj_BigClassName")
         Rsss.close
     end if
     '读出小类别名称，写入表中结束
@@ -1062,7 +1124,31 @@ Sub big_lie()'列出所有一级栏目
 End Sub
 
 ''''''' gallery '''''''''
-Sub gallery_big_lie()'列出所有一级栏目
+Sub gallery_Big_input()'所有一级分类，表单形式
+    Set Rs=server.createobject("ADODB.Recordset")
+    Sql="select * from clkj_gallery_BigClass"
+    Rs.open Sql,conn,1,1
+    If Rs.Eof and Rs.Bof Then
+        response.write "暂无一级分类"
+    Else
+    Do while not RS.Eof
+    response.write "<option value="
+    response.write rs("clkj_BigClassID")
+    IF rs("clkj_BigClassID")=cint(request("clkj_BigClassID")) then
+        response.write" selected=selected"
+    end if
+    response.write">"
+    response.write rs("clkj_BigClassName")
+    response.write "</option>"
+
+    Rs.Movenext
+    Loop
+    Rs.close
+    End If
+End Sub
+
+
+Sub gallery_big_lie()'列出所有一级分类
 	Set Rs=server.createobject("ADODB.Recordset")
 		Sql="select * from clkj_gallery_BigClass"
 		Rs.open Sql,conn,1,1
@@ -1081,7 +1167,7 @@ Sub gallery_big_lie()'列出所有一级栏目
 	End If
 End Sub
 
-Sub gallery_small_lie()'列出所有二级栏目
+Sub gallery_small_lie()'列出所有二级分类
 	Set Rs=server.createobject("ADODB.Recordset")
 		Sql="select * from clkj_gallery_SmallClass where clkj_BigClassID="&cint(request("clkj_BigClassID"))
 		Rs.open Sql,conn,1,1
@@ -1206,13 +1292,13 @@ End Sub
 '''''gallery分类管理
 Sub GalleryFenLei()
 ' 1. 大类
- set rs=server.createobject("adodb.recordset")
-		exec="select * from clkj_gallery_BigClass order by big_paixu,clkj_BigClassID asc"
-		rs.open exec,conn,1,1
-		do while not rs.eof
-		big_name=rs("clkj_BigClassName")
-		big_id = rs("clkj_BigClassID")
-		response.write "<tr bgcolor="&chr(34)&"#ECF6FC"&chr(34)&"><td width="&chr(34)&"8%"&chr(34)&" height="&chr(34)&"25"&chr(34)&" align="&chr(34)&"center"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&"><font color='red'><strong>"&rs("big_paixu")&"</font></strong></td><td width="&chr(34)&"45%"&chr(34)&" height="&chr(34)&"30"&chr(34)&" align="&chr(34)&"left"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&" style="&chr(34)&"padding:2px;"&chr(34)&"><b>"&big_name&"</b></td><td height="&chr(34)&"30"&chr(34)&" align="&chr(34)&"left"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&" style="&chr(34)&"padding:2px;"&chr(34)&"><a href=Nimda_gallery_class.asp?clkj_BigClassID="&Rs("clkj_BigClassID")&"&Edit=small_class_add#zr><font color='#CC66CC'>添加二级分类</font></a> | <a href='Nimda_gallery_class.asp?clkj_BigClassID="&Rs("clkj_BigClassID")&"&Edit=big_class_edit#xy'>修改该一级分类</a> | <a href='Nimda_gallery_class.asp?clkj_BigClassID="&Rs("clkj_BigClassID")&"&Class=gallery_big_class_del' onclick="&chr(34)&"return confirm('删除该栏，将会删除该栏目下的所有产品!\n\n是否将该一级栏目删除?');"&chr(34)&"><font color='red'>删除该类</font></a></td></tr>"
+    set rs=server.createobject("adodb.recordset")
+    exec="select * from clkj_gallery_BigClass order by big_paixu,clkj_BigClassID asc"
+    rs.open exec,conn,1,1
+    do while not rs.eof
+    big_name=rs("clkj_BigClassName")
+    big_id = rs("clkj_BigClassID")
+    response.write "<tr bgcolor="&chr(34)&"#ECF6FC"&chr(34)&"><td width="&chr(34)&"8%"&chr(34)&" height="&chr(34)&"25"&chr(34)&" align="&chr(34)&"center"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&"><font color='red'><strong>"&rs("big_paixu")&"</font></strong></td><td width="&chr(34)&"45%"&chr(34)&" height="&chr(34)&"30"&chr(34)&" align="&chr(34)&"left"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&" style="&chr(34)&"padding:2px;"&chr(34)&"><b>"&big_name&"</b></td><td height="&chr(34)&"30"&chr(34)&" align="&chr(34)&"left"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&" style="&chr(34)&"padding:2px;"&chr(34)&"><a href=Nimda_gallery_class.asp?clkj_BigClassID="&Rs("clkj_BigClassID")&"&Edit=small_class_add#zr><font color='#CC66CC'>添加二级分类</font></a> | <a href='Nimda_gallery_class.asp?clkj_BigClassID="&Rs("clkj_BigClassID")&"&Edit=gallery_big_edit#xy'>修改该一级分类</a> | <a href='Nimda_gallery_class.asp?clkj_BigClassID="&Rs("clkj_BigClassID")&"&Class=gallery_big_class_del' onclick="&chr(34)&"return confirm('删除该栏，将会删除该栏目下的所有产品!\n\n是否将该一级栏目删除?');"&chr(34)&"><font color='red'>删除该类</font></a></td></tr>"
 
 ' 2. 小类
 			set rs_1=server.createobject("adodb.recordset")
@@ -1220,7 +1306,7 @@ Sub GalleryFenLei()
 			rs_1.open exec_1,conn,1,1
 			do while not rs_1.eof
 			small_name = rs_1("clkj_SmallClassName")
-			response.write "<tr onMouseOver="&chr(34)&"this.style.backgroundColor='#ccff66';"&chr(34)&" onmouseout="&chr(34)&"this.style.backgroundColor='#ffffff';"&chr(34)&"><td width="&chr(34)&"8%"&chr(34)&" height="&chr(34)&"25"&chr(34)&" align="&chr(34)&"center"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&">"&rs_1("small_paixu")&"</td><td width="&chr(34)&"45%"&chr(34)&" height="&chr(34)&"30"&chr(34)&" align="&chr(34)&"left"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&" style="&chr(34)&"padding:2px;text-indent:2em;"&chr(34)&">-| "&small_name&"</td><td height="&chr(34)&"30"&chr(34)&" align="&chr(34)&"left"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&" style="&chr(34)&"padding:2px;"&chr(34)&"><a href='nimda_gallery.asp'><font color='#0000FF'>添加内容</font></a> | <a href='Nimda_gallery_class.asp?clkj_SmallClassID="&Rs_1("clkj_SmallClassID")&"&Edit=S_E#xr'>修改该二级分类</a> | <a href='Nimda_gallery_class.asp?clkj_SmallClassID="&Rs_1("clkj_SmallClassID")&"&Class=gallery_small_Del' onclick="&chr(34)&"return confirm('删除该栏，将会删除该栏目下的所有产品!\n\n是否将该二级栏目删除?');"&chr(34)&"><font color='#993399'>删除该类</font></a></td></tr>"
+			response.write "<tr onMouseOver="&chr(34)&"this.style.backgroundColor='#ccff66';"&chr(34)&" onmouseout="&chr(34)&"this.style.backgroundColor='#ffffff';"&chr(34)&"><td width="&chr(34)&"8%"&chr(34)&" height="&chr(34)&"25"&chr(34)&" align="&chr(34)&"center"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&">"&rs_1("small_paixu")&"</td><td width="&chr(34)&"45%"&chr(34)&" height="&chr(34)&"30"&chr(34)&" align="&chr(34)&"left"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&" style="&chr(34)&"padding:2px;text-indent:2em;"&chr(34)&">-| "&small_name&"</td><td height="&chr(34)&"30"&chr(34)&" align="&chr(34)&"left"&chr(34)&" valign="&chr(34)&"middle"&chr(34)&" style="&chr(34)&"padding:2px;"&chr(34)&"><a href='nimda_gallery.asp'><font color='#0000FF'>添加内容</font></a> | <a href='Nimda_gallery_class.asp?clkj_SmallClassID="&Rs_1("clkj_SmallClassID")&"&Edit=gallery_small_edit#xr'>修改该二级分类</a> | <a href='Nimda_gallery_class.asp?clkj_SmallClassID="&Rs_1("clkj_SmallClassID")&"&Class=gallery_small_class_del' onclick="&chr(34)&"return confirm('删除该栏，将会删除该栏目下的所有产品!\n\n是否将该二级栏目删除?');"&chr(34)&"><font color='#993399'>删除该类</font></a></td></tr>"
 			rs_1.movenext
 			loop
 			rs_1.close
