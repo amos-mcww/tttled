@@ -93,7 +93,7 @@ if page<1 then page=1
 		%>
 		<div class="gallery">
 			<div class="gallery_div_img">
-				<a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><img src="<%=clkj_prpic%>"  alt="<%=rs("clkj_prtitle")%>" border="0"/>
+				<a href="gallery_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><img src="<%=clkj_prpic%>"  alt="<%=rs("clkj_prtitle")%>" border="0"/>
 				</a>
 			</div>
 			<div class="gallery_div_title">
