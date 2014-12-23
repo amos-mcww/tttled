@@ -9,7 +9,7 @@ clkj_page_id="gallery"
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <link rel="shortcut icon" href="Clkj_Images/back_image/favicon.ico" mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="Clkj_Images/back_image/favicon.ico"  mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
-<title><%call ileibie2(1)%> - <%=clkj_co_name%></title>
+<title><%call gallery_ileibie2(1)%> - <%=clkj_co_name%></title>
 <meta name="keywords" content="<%call ileibie2(2)%>" />
 <meta name="description" content="<%call ileibie2(3)%>" />
 <link href="Clkj_Template/Clkj_moban_1/Clkj_css/Trade.css" rel="stylesheet" type="text/css" />
