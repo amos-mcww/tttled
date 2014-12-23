@@ -8,7 +8,7 @@ clkj_new_lei="About us"
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<link rel="shortcut icon" href="Clkj_Images/back_image/favicon.ico" mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" /> 
+<link rel="shortcut icon" href="Clkj_Images/back_image/favicon.ico" mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="Clkj_Images/back_image/favicon.ico"  mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
 <title><%=clkj_news_Titlef%>  - <%=clkj_co_name%></title>
 <meta name="keywords" content="<%=clkj_news_keyf%>" />
@@ -40,8 +40,8 @@ The company has won many honorable titles, such as "The Top Medium-sized Townshi
 In face of the market environment of globalization, in the spirit of "loyalty, perseverance, cooperation and excess", we will always remember the goal of "building a century Yunhuan and creating a century undertaking", and make continuous efforts towards internationalization of the group. <br>
 Ningbo Yunhuan Electronics Group Corporation manufactures power cords, rubber cords, plugs, sockets, lamps, cable reels, computer peripheral connectors, communication connectors, DC <a href="http://www.international-power-cord.com/" target="_blank">power cord</a>, audio and video connectors, high-precision electronic product processing, small home appliances, electronic accelerator, and PTFE nanometer material and clothes. With a fixed asset of RMB220 million, the group covers an area of 350,000 square meters, including building area of 250,000 square meters and has 4,800 staff, including 280 specialized technicians of various fields with 35 ones holding middle or high ranking professional titles. The dominant products of the company have acquired a series of safety certification in more than 20 countries, such as China Compulsory Certificate (3C), America UL and CUL, the Germany VDE and GS, British BS, Japanese PSE, Australian SAA, French NF, Canadian CSA, Italian IMQ, Korean KS, Netherlandish KEMA, etc. In addition, with ERP Resource Management System, the company has also acquired the ISO9001: 2000 Quality Management System Attestation and ISO14000 Management System Authentication. Under the operation idea of "creating good environment and seeking common progress" and the quality policy of "exploiting market with high quality and winning customers with honest", our products have been well sold in Europe, America, Australia,
          <a href="http://www.international-power-cord.com/">Ac Power Cord</a>,<a href="http://www.international-power-cord.com/Products/">Power Supply Cord</a>
-            Middle East and South Africa, etc.<br> 
-         </li>  
+            Middle East and South Africa, etc.<br>
+         </li>
        </ul>
         </div>
       </div>
@@ -61,5 +61,13 @@ Ningbo Yunhuan Electronics Group Corporation manufactures power cords, rubber co
   </div>
 </div>
 <%call allclose()%>
+
+
+<!-- 统计代码开始 -->
+<script language="JavaScript" src="http://mmmled.com/smartstats/smartstat.asp?siteID=1" type="text/JavaScript"></script>
+<!-- 统计代码结束 -->
+
+
+
 </body>
 </html>

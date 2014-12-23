@@ -1,0 +1,95 @@
+<!--
+body {
+	font: 12px/1.6em Tahoma,Verdana;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	word-break:break-all; 
+	font-size: 12.8px;
+	LINE-HEIGHT: 150%;
+}
+hr{
+	height:1px;
+	border:1px solid #58CB64;
+	line-height:1px;
+	display:block;
+	clear:both;
+}
+td {
+	font-size: 12.8px;
+	color: #000000;
+	line-height: 150%;
+}
+.SmartRed {
+	color: #FF0000;
+}
+.SmartWhite {
+	color: #ffffff;
+	font-weight: bold;
+}
+.SmartTitle {
+	font-weight: bold;
+	FONT-SIZE: 14.8px;
+}
+.SmartText {
+	color: #008200;
+	FONT-SIZE: 14.8px;
+}
+.SmartButton {
+	border:1px solid;
+	border-color:#CCC #777 #777 #CCC;
+	padding:2px;
+	margin:0px;
+	font-size:12.8px;
+	margin-right:4px;
+	background-color:#D4D0C8;
+}
+
+A:link {
+	font-family:"MS Shell Dlg";
+	font-size: 12.8px;
+	word-break:break-all;
+	TEXT-DECORATION: none;
+	color: #000000;
+	line-height: 150%;
+}
+A:visited {
+	font-family: "MS Shell Dlg";
+	FONT-SIZE:12.8px;
+	TEXT-DECORATION: none;
+	color: #000000;word-break:break-all; line-height: 150%;
+}
+A:active {
+	font-family: "MS Shell Dlg";
+	FONT-SIZE: 12.8px;
+	TEXT-DECORATION: none;
+	color: #0000FF;word-break:break-all; line-height: 150%;
+}
+A:hover {
+	font-family: "MS Shell Dlg";
+	FONT-SIZE: 12.8px;
+	TEXT-DECORATION: underline;
+	color: #CC0000;
+	word-break:break-all; line-height: 150%;
+}
+
+A.smartLink:link {
+	line-height: 22px;color: #ffffff;font-weight: bold;
+}
+A.smartLink:visited {
+	line-height: 22px;color: #ffffff;font-weight: bold;
+}
+A.smartLink:hover {
+	line-height: 22px;color: #ffffff;font-weight: bold;
+}
+
+.dashedtd{
+	BORDER-BOTTOM:  #bebebe  1px  solid;
+	BORDER-top:  #bebebe  1px  solid;
+	BORDER-LEFT:  #bebebe  1px  solid;
+	BORDER-RIGHT:  #bebebe  1px  solid;
+	background-color:#ffffff;
+	}
+
+-->

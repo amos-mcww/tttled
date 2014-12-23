@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<link rel="shortcut icon" href="Clkj_Images/back_image/favicon.ico" mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" /> 
+<link rel="shortcut icon" href="Clkj_Images/back_image/favicon.ico" mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="Clkj_Images/back_image/favicon.ico"  mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
 <title>Feedback - <%=clkj_co_name%></title>
 <meta name="keywords" content="<% call navdes(31,0)%>" />
@@ -19,7 +19,7 @@
           if(!myreg.test(temp.value))
           {
                alert('Please enter a valid E-mail！');
-			   temp.value="";	   
+			   temp.value="";
                return false;
           }
       }
@@ -68,10 +68,15 @@
             </table></div>
             <div class="cb"></div>
         </div>
-    
+
     </div>
     <div class="cb"></div>
  <!--#include file="Clkj_Template/Clkj_moban_1/Clkj_Include/Trade_bot.asp"-->
 </div>
+
+<!-- 统计代码开始 -->
+<script language="JavaScript" src="http://mmmled.com/smartstats/smartstat.asp?siteID=1" type="text/JavaScript"></script>
+<!-- 统计代码结束 -->
+
 </body>
 </html>

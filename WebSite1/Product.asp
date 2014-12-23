@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<link rel="shortcut icon" href="Clkj_Images/back_image/favicon.ico" mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" /> 
+<link rel="shortcut icon" href="Clkj_Images/back_image/favicon.ico" mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="Clkj_Images/back_image/favicon.ico"  mce_href="Clkj_Images/back_image/favicon.ico" type="image/x-icon" />
 <title><%call ileibie2(1)%> - <%=clkj_co_name%></title>
 <meta name="keywords" content="<%call ileibie2(2)%>" />
@@ -51,27 +51,27 @@ if page<1 then page=1
 	proCount=rs.recordcount
 
 %>
-        
+
         	<div class="sem-mid-cont-bt"><span class="sl"><%call ileibie()%></span>
-            <span class="sr"><%if page<>1 then %><a href="<%if big=""and small="" then%>?page=<%=page-1%><%elseif  big<>"" and small="" then%>?big=<%=big%>&page=<%=page-1%><%elseif small<>"" and big="" then%>?small=<%=small%>&page=<%=page-1%><%end if%>"><img src="Clkj_Template/Clkj_moban_1/Clkj_Images/prev.gif" border="0" align="absmiddle"></a> <%end if%> 
-            
+            <span class="sr"><%if page<>1 then %><a href="<%if big=""and small="" then%>?page=<%=page-1%><%elseif  big<>"" and small="" then%>?big=<%=big%>&page=<%=page-1%><%elseif small<>"" and big="" then%>?small=<%=small%>&page=<%=page-1%><%end if%>"><img src="Clkj_Template/Clkj_moban_1/Clkj_Images/prev.gif" border="0" align="absmiddle"></a> <%end if%>
+
             <%if page<rs.pagecount then %> <a href="<%if big=""and small="" then%>?page=<%=page+1%><%elseif  big<>"" and small="" then%>?big=<%=big%>&page=<%=page+1%><%elseif small<>"" and big="" then%>?small=<%=small%>&page=<%=page+1%><%end if%>"><img src="Clkj_Template/Clkj_moban_1/Clkj_Images/next.gif" border="0" align="absmiddle"></a><%end if%>
-            </span>  
+            </span>
            </div>
             <div class="cb"></div>
             <div class="sem-mid-cont-1">
 			<%
-		for i=1 to rs.pagesize		
+		for i=1 to rs.pagesize
 		j=1
 		b=Split(rs("clkj_prpic"),",")'取一条图片记录
 		For Each CStRss in b
 			if j<=1 then
 				IF isobjinstalled("Persits.Jpeg") Then
-				
+
 					clkj_prpic=Replace(CStRss,"upfile/","upfile/smallpic/")
 				Else
 					clkj_prpic=CStRss
-				End IF	
+				End IF
 			End if
 			j=j+1
 		Next
@@ -85,9 +85,9 @@ if page<1 then page=1
             pn = Left(pn,66) & "..."
         Else
         	SEMCMS_Br= ""
-        End if		
+        End if
 		%>
-            
+
            <div class="pic"><div class="pic-div"><dt class="pic-dt"><a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><img src="<%=clkj_prpic%>"  alt="<%=rs("clkj_prtitle")%>" border="0"/></a></dt>
             <dd>
             <dd><a href="P_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><%=pn%><%=SEMCMS_Br%></a></dd>
@@ -101,14 +101,14 @@ if page<1 then page=1
 			Exit For
 			End if
 			next
-		%>  
+		%>
             </div>
             <div class="cb"></div>
             <div class="sem-mid-cont-1"><span class="sr"> Total products <b><%=proCount%></b>, Page <b><%=page%></b> of <b><%=rs.pagecount%></b> <%if page<>1 and  page<>0 then %>
 <a href="<%if big=""and small="" then%>?page=<%=page-1%><%elseif  big<>"" and small="" then%>?big=<%=big%>&page=<%=page-1%><%elseif small<>"" and big="" then%>?small=<%=small%>&page=<%=page-1%><%end if%>"><img src="Clkj_Template/Clkj_moban_1/Clkj_Images/prev.gif" border="0" align="absmiddle"></a> <%end if%>
             <%'分页
-		if big=""and small="" then	
-	
+		if big=""and small="" then
+
 			if page>2 then s1=page-2 else s1=1
 			if page<rs.pagecount-2 then s2=page+1 else s2=rs.pagecount
 			if s1>=2 then response.write "<a href=?page="&(rs.pagecount-rs.pagecount)+1&"><span class='sp_2'>1</span></a>.."
@@ -120,9 +120,9 @@ if page<1 then page=1
 			end if
 			next
 			if s2<rs.pagecount then response.write "..<a href='?page="&rs.pagecount&"'><span class='sp_2'>"&rs.pagecount&"</span></a>"
-			
+
 		elseif big<>""and small="" then
-		
+
 			if page>2 then s1=page-2 else s1=1
 			if page<rs.pagecount-2 then s2=page+1 else s2=rs.pagecount
 			if s1>=2 then response.write "<a href=?big="&big&"&page="&(rs.pagecount-rs.pagecount)+1&"><span class='sp_2'>1</span></a>.."
@@ -134,9 +134,9 @@ if page<1 then page=1
 			end if
 			next
 			if s2<rs.pagecount then response.write "..<a href='?big="&big&"&page="&rs.pagecount&"'><span class='sp_2'>"&rs.pagecount&"</span></a>"
-					
+
 		elseif big=""and small<>"" then
-		
+
 			if page>2 then s1=page-2 else s1=1
 			if page<rs.pagecount-2 then s2=page+1 else s2=rs.pagecount
 			if s1>=2 then response.write "<a href='?small="&small&"&page="&(rs.pagecount-rs.pagecount)+1&"'><span class='sp_2'>1</span></a>.."
@@ -153,17 +153,21 @@ if page<1 then page=1
 		%>
 <%if page<rs.pagecount then %> <a href="<%if big=""and small="" then%>?page=<%=page+1%><%elseif  big<>"" and small="" then%>?big=<%=big%>&page=<%=page+1%><%elseif small<>"" and big="" then%>?small=<%=small%>&page=<%=page+1%><%end if %>"><img src="Clkj_Template/Clkj_moban_1/Clkj_Images/next.gif" border="0" align="absmiddle"></a>
         <%
-		end if 
+		end if
 		rs.close
 		%></span></div>
             <div class="cb"></div>
             <%end if%>
         </div>
-    
+
     </div>
     <div class="cb"></div>
  <!--#include file="Clkj_Template/Clkj_moban_1/Clkj_Include/Trade_bot.asp"-->
 </div>
+
+<!-- 统计代码开始 -->
+<script language="JavaScript" src="http://mmmled.com/smartstats/smartstat.asp?siteID=1" type="text/JavaScript"></script>
+<!-- 统计代码结束 -->
 
 </body>
 </html>

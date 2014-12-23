@@ -179,5 +179,9 @@ if page<1 then page=1
  <!--#include file="Clkj_Template/Clkj_moban_1/Clkj_Include/Trade_bot.asp"-->
 </div>
 
+<!-- 统计代码开始 -->
+<script language="JavaScript" src="http://mmmled.com/smartstats/smartstat.asp?siteID=1" type="text/JavaScript"></script>
+<!-- 统计代码结束 -->
+
 </body>
 </html>
