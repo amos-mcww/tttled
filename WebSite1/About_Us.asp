@@ -33,7 +33,7 @@ clkj_new_lei="About us"
 </div>
 
 <!-- 统计代码开始 -->
-<script language="JavaScript" src="http://mmmled.com/smartstats/smartstat.asp?siteID=1" type="text/JavaScript"></script>
+<script language="JavaScript" src="http://mmmled.com/smartstat/smartstat.asp?siteID=1" type="text/JavaScript"></script>
 <!-- 统计代码结束 -->
 
 </body>
