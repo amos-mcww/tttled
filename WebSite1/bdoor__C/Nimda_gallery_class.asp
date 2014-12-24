@@ -58,7 +58,7 @@ If request.querystring("Edit")="gallery_big_edit" Then
 <tr>
 <td width="25%" height="30" align="center" valign="middle">序号</td>
 <td width="75%" align="left" class="h_td"><input name="big_paixu" type="text" id="big_paixu" value="<%=rs("big_paixu")%>" size="5">
-  多个gallery项目中,数字越大该类越靠前</td>
+  多Gallery项目中,数字越 小 该类越类越靠前</td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">&nbsp;</td>
@@ -100,12 +100,13 @@ Else If request.querystring("Edit")="gallery_big_add" then
 <td width="75%" align="left" class="h_td"><p>
   <textarea name="big_ms_name" cols="75" rows="12" id="big_ms_name"></textarea>
   </p>
-  <p>建议控制在500个字以内</p></td>
+  <p>建议控制在500个字以内</p>
+  <p>&nbsp;</p></td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">序号</td>
 <td width="75%" align="left" class="h_td"><input name="big_paixu" type="text" id="big_paixu" value="0" size="5">
-  多个gallery项目中,数字越大该类越靠前</td>
+  多Gallery项目中,数字越 小 该类越类越靠前</td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">&nbsp;</td>
@@ -168,13 +169,16 @@ End If
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">描述<br>(description)</td>
-<td><textarea name="small_ms_name" cols="75" rows="12" id="small_ms_name"><%=m%></textarea>
-  <span class="h_td">建议控制在500个字以内</span></td>
+<td><p>
+  <textarea name="small_ms_name" cols="75" rows="12" id="small_ms_name"><%=m%></textarea>
+  </p>
+  <p><span class="h_td">建议控制在500个字以内</span></p>
+  <p>&nbsp;</p></td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">序号</td>
 <td width="88%" align="left" class="h_td"><input name="small_paixu" type="text" id="small_paixu" value="<%=sp%>" size="5">
-  多个gallery项目中,数字越大该类越靠前</td>
+  多Gallery项目中,数字越 小 该类越类越靠前</td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">&nbsp;</td>
@@ -233,7 +237,7 @@ Else  If request.querystring("Edit")="small_class_add" Then
 <tr>
 <td width="25%" height="30" align="center" valign="middle">序号</td>
 <td width="88%" align="left" class="h_td"><input name="small_paixu" type="text" id="small_paixu" value="0" size="5">
-  多个gallery项目中,数字越大该类越靠前</td>
+  多Gallery项目中,数字越 小 该类越类越靠前</td>
 </tr>
 <tr>
 <td width="25%" height="30" align="center" valign="middle">&nbsp;</td>

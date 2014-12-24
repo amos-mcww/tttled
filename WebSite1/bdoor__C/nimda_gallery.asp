@@ -118,7 +118,7 @@ IF Request.querystring("Edit")="gallery_edit" Then
 </tr>
 <%
 	Set Rs=server.createobject("ADODB.Recordset")
-	Sql="select * from clkj_gallerys where clkj_prid ="&cint(request("clkj_prid"))
+	Sql="select * from clkj_gallery where clkj_prid ="&cint(request("clkj_prid"))
 	Rs.open Sql,conn,1,1
 %>
 <tr>
@@ -133,7 +133,7 @@ IF Request.querystring("Edit")="gallery_edit" Then
   <td>
     <p>
       <input name="clkj_paixu" type="text" id="textfield" value="<%=rs("clkj_paixu")%>" size="5">
-      <font color="#ff000">*</font>多个gallery项目中,数字越大该类越靠前</p>
+      <font color="#ff000">*</font>多Gallery项目中,数字越 小 该类越类越靠前</p>
     <p>&nbsp;</p></td>
 </tr>
 <tr>
@@ -258,7 +258,7 @@ rsClass1.close
   <td align="center" valign="middle" height="30">排序</td>
   <td>
     <input name="clkj_paixu" type="text" id="textfield" value="1" size="6">
-    <font color="#ff000">*</font>多个gallery项目中,数字越大该类越靠前</td>
+    <font color="#ff000">*</font>多Gallery项目中,数字越 小 该类越类越靠前</td>
 </tr>
 <tr>
   <td align="center" valign="middle" height="30">关键字<br>(keywords)</td>
