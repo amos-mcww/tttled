@@ -243,6 +243,8 @@ elseif Request.Querystring("Class")="cansu" and trim(Request.Form("clkj_name"))<
 	Rs("clkj_lxr") = Request.Form("clkj_lxr")
 	Rs("clkj_profile") = Request.Form("clkj_profile")
 	Rs("clkj_pro_sl") = int(Request.Form("clkj_pro_sl"))
+	Rs("clkj_gallery_pagesize") = int(Request.Form("clkj_gallery_pagesize"))
+
 	Rs("logo_ms") =  Request.Form("logo_ms")
 	Rs("adv") =  Replace(Request.Form("adv"),"../","")
 	Rs("adv_adress") = Request.Form("adv_adress")

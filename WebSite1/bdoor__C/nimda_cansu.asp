@@ -215,11 +215,14 @@
     </tr>
     <tr>
     <tr>
-      <td width="15%" height="35" align="center" valign="middle">产品列表<br>
-        (新闻列表)</td>
-      <td height="35" align="left" valign="middle"> 列表数量：
-        <input name="clkj_pro_sl" type="text" id="clkj_pro_sl" value="<%=rs("clkj_pro_sl")%>" size="4">
-        ,(即页面显示条数) </td>
+      <td height="35" align="center" valign="middle">Gallery列表<br></td>
+      <td height="35" align="left" valign="middle"> Gallery页面每页显示的数量：
+        <input name="clkj_gallery_pagesize" type="text" id="clkj_gallery_pagesize" value="<%=rs("clkj_gallery_pagesize")%>" size="6"></td>
+    </tr>
+    <tr>
+      <td width="15%" height="35" align="center" valign="middle">产品列表<br></td>
+      <td height="35" align="left" valign="middle"> 产品页面每页显示的数量：    
+        <input name="clkj_pro_sl" type="text" id="clkj_pro_sl" value="<%=rs("clkj_pro_sl")%>" size="6"></td>
     </tr>
     <tr>
       <td height="35" align="center" valign="middle">功能开启</td>

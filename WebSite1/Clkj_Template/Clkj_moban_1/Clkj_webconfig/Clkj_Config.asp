@@ -84,6 +84,7 @@
 		clkj_config_sltk = rs("clkj_config_sltk")'图片宽度
 		clkj_config_sltg = rs("clkj_config_sltg")'图片高度
 		clkj_config_sl = rs("clkj_pro_sl")'产品数量显示
+		clkj_config_gallery_pagesize = rs("clkj_gallery_pagesize")'gallery 每页显示的数量
 		clkj_config_web_url = rs("clkj_config_url")'网站地址
 
 '--------------------------------------------------------------------------

@@ -41,7 +41,7 @@ rs.open sql,conn,1,1
 	response.write"<div style='margin-top:120px; height:100px; font-size:18px; font-weight:bold; width:760px; text-align:center;'><img src='Clkj_Template/Clkj_moban_1/Clkj_Images/sorry.gif' align='absmiddle'> Sorry, no related gallery!</div>"
 
 	Else
-		rs.pagesize=clkj_config_sl
+		rs.pagesize=clkj_config_gallery_pagesize
 		page=request("page")
 	If Not Isnumeric(page) or page="" Then
 		page=1
@@ -93,8 +93,7 @@ if page<1 then page=1
 		%>
 		<div class="gallery">
 			<div class="gallery_div_img">
-				<a href="gallery_view.asp?pid=<%=rs("clkj_prid")%>" target="_blank"><img src="<%=clkj_prpic%>"  alt="<%=rs("clkj_prtitle")%>" border="0"/>
-				</a>
+                <img src="<%=clkj_prpic%>"  alt="<%=rs("clkj_prtitle")%>" border="0"/>
 			</div>
 			<div class="gallery_div_title">
                 <textarea name="pn" cols="48" rows="4" id="pn" class="gallery_div_title_textbox"><% =rs("clkj_prtitle") %></textarea>
