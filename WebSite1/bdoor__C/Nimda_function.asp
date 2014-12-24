@@ -918,15 +918,15 @@ elseif Request.Querystring("Class")="gallery_del" Then
     For Each Strss In delid
         Call DelImage("gallery_del",cint(Strss))
     next
-    Sql="delete * from clkj_Products where clkj_prid in ("&request("delid")&")"
+    Sql="delete * from clkj_gallery where clkj_prid in ("&request("delid")&")"
     conn.execute Sql
     'Response.Redirect "Nimda_products.asp?Lei=删除成功"
     if request("clkj_BigClassID")<>"" and  request("clkj_SmallClassID")="" then
-        Response.Redirect "Nimda_products.asp?clkj_BigClassID="&request("clkj_BigClassID")&"&clkj_BigClassName="&request.QueryString("clkj_BigClassName")&"&sf="&request.QueryString("sf")&"&ToPage="&request("ToPage")&"&Lei=删除成功"
+        Response.Redirect "Nimda_gallerys.asp?clkj_BigClassID="&request("clkj_BigClassID")&"&clkj_BigClassName="&request.QueryString("clkj_BigClassName")&"&sf="&request.QueryString("sf")&"&ToPage="&request("ToPage")&"&Lei=删除成功"
     elseif request("clkj_SmallClassID")<>"" then
-        Response.Redirect "Nimda_products.asp?clkj_BigClassID="&request("clkj_BigClassID")&"&clkj_BigClassName="&request.QueryString("clkj_BigClassName")&"&clkj_SmallClassID="&request("clkj_SmallClassID")&"&clkj_SmallClassName="&request.QueryString("clkj_SmallClassName")&"&sf="&request.QueryString("sf")&"&ToPage="&request("ToPage")&"&Lei=删除成功"
+        Response.Redirect "Nimda_gallerys.asp?clkj_BigClassID="&request("clkj_BigClassID")&"&clkj_BigClassName="&request.QueryString("clkj_BigClassName")&"&clkj_SmallClassID="&request("clkj_SmallClassID")&"&clkj_SmallClassName="&request.QueryString("clkj_SmallClassName")&"&sf="&request.QueryString("sf")&"&ToPage="&request("ToPage")&"&Lei=删除成功"
     else
-        Response.Redirect "Nimda_products.asp?ToPage="&request("ToPage")&"&Lei=删除成功"
+        Response.Redirect "Nimda_gallerys.asp?ToPage="&request("ToPage")&"&Lei=删除成功"
     end if
 
 ' 5.2 gallery 修改
