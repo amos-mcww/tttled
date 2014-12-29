@@ -13,6 +13,19 @@ clkj_new_lei="About us"
 <title><%=clkj_news_Titlef%>  - <%=clkj_co_name%></title>
 <meta name="keywords" content="<%=clkj_news_keyf%>" />
 <link href="Clkj_Template/Clkj_moban_1/Clkj_css/Trade.css" rel="stylesheet" type="text/css" />
+
+<!-- 统计代码开始 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f45abfe012f05abf831ebd16587002d4";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 统计代码结束 -->
+
 </head>
 <body>
 <div class="T_all">
@@ -61,11 +74,6 @@ Ningbo Yunhuan Electronics Group Corporation manufactures power cords, rubber co
   </div>
 </div>
 <%call allclose()%>
-
-
-<!-- 统计代码开始 -->
-<script language="JavaScript" src="http://mmmled.com/__ip_stat++/smartstat.asp?siteID=1" type="text/JavaScript"></script>
-<!-- 统计代码结束 -->
 
 
 

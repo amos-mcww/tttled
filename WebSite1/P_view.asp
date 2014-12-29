@@ -11,6 +11,19 @@
 <meta name="description" content="<%=clkj_prprdes%>" />
 <link href="Clkj_Template/Clkj_moban_1/Clkj_css/Trade.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="Clkj_Inc/js/lightbox.css" type="text/css" media="screen" />
+
+<!-- 统计代码开始 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f45abfe012f05abf831ebd16587002d4";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 统计代码结束 -->
+
 </head>
 <body>
 <div class="sem">
@@ -110,9 +123,7 @@
 <script src="Clkj_Inc/js/lightbox.js" type="text/javascript"></script>
 
 
-<!-- 统计代码开始 -->
-<script language="JavaScript" src="http://mmmled.com/__ip_stat++/smartstat.asp?siteID=1" type="text/JavaScript"></script>
-<!-- 统计代码结束 -->
+
 
 
 </body>
