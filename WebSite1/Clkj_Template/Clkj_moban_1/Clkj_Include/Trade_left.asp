@@ -13,7 +13,20 @@
 
             </div>
             <div class="cb"></div>
+			
+<%elseif clkj_new_lei="About us" and clkj_new_les="index" then%>
+<div class="sem-mid-left-bt"><%=clkj_new_lei%></div>
+            <div class="sem-mid-left-1">
+            	<div class="sem-mid-left-1-1">
+                	<ul>
+					 <%=Abouttitle%>
 
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="cb"></div>
 
 <%elseif clkj_page_id="gallery" then%>
     <script language="javascript">
